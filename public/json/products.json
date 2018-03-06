@@ -1,0 +1,9 @@
+{
+  "products": [{
+    "name": "firstProd",
+    "description": "first product",
+    "count": 2,
+    "material": "plastic",
+    "id": 1
+  }]
+}

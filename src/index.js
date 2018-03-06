@@ -1,8 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import { render } from "react-dom";
+import { ProductsComponent } from './products';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const App = () => (
+  <div>
+    <h2 className="alert alert-primary" role="alert">
+      Shop Application
+    </h2>
+    <ProductsComponent />
+    
+  </div>
+);
+
+render(<App />, document.getElementById("root"));

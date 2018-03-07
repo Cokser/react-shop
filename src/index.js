@@ -1,14 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
 import { ProductsComponent } from './products';
+import Header from "./shared/header/header";
 
 const App = () => (
   <div>
-    <h2 className="alert alert-primary" role="alert">
-      Shop Application
-    </h2>
+    <Header />
     <ProductsComponent />
-    
   </div>
 );
 

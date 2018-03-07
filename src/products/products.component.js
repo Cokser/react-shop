@@ -1,7 +1,7 @@
 import React from 'react';
 import './products.component.css';
 import { ProductListComponent, ProductFormComponent } from './index.js';
-import Modal from './modal/modal';
+import Modal from '../shared/modal/modal';
 
 
 export default class ProductsComponent extends React.Component {

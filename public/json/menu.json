@@ -1,0 +1,20 @@
+{
+  "menu": [{
+    "title": "Home",
+    "url": "homePage",
+    "active": true,
+    "children" : []
+  },
+    {
+      "title": "Products",
+      "url": "productsPage",
+      "active": false,
+      "children" : []
+    },
+    {
+      "title": "About Us",
+      "url": "aboutUsPage",
+      "active": false,
+      "children" : []
+    }]
+}

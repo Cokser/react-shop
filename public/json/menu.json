@@ -1,20 +1,22 @@
 {
-  "menu": [{
-    "title": "Home",
-    "url": "homePage",
-    "active": true,
-    "children" : []
-  },
+  "menu": [
+    {
+      "title": "Home",
+      "url": "/",
+      "active": true,
+      "children" : []
+    },
     {
       "title": "Products",
-      "url": "productsPage",
+      "url": "/productsPage",
       "active": false,
       "children" : []
     },
     {
       "title": "About Us",
-      "url": "aboutUsPage",
+      "url": "/aboutUsPage",
       "active": false,
       "children" : []
-    }]
+    }
+  ]
 }

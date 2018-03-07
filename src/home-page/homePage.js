@@ -1,13 +1,13 @@
 import React from 'react';
-import 'homePage.css';
+import './homePage.css';
 
 export default class HomePage extends React.Component {
 
-  constructor(props) {
-
-    super(props);
-
-  }
+  // constructor(props) {
+  //
+  //   super(props);
+  //
+  // }
 
   componentDidMount() {
   }
@@ -18,7 +18,7 @@ export default class HomePage extends React.Component {
   render() {
 
     return (
-      <div> hello  !</div>
+      <div> hello Home !</div>
     );
   }
 }

@@ -15,7 +15,7 @@ export default class ProductsComponent extends React.Component {
       isLoaded: false,
       showModal: false,
       products: []
-    }
+    };
   }
   
   componentDidCatch(error, info) {

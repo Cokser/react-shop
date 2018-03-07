@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import './header.css';
+import { Link } from 'react-router-dom';
 
 export default class Header extends React.Component {
 
@@ -51,25 +52,26 @@ export default class Header extends React.Component {
           </button>
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav navbar-menu">
-              {this.state.menu.map((menuItem) => {
-                if (menuItem.active) {
-                  return (
-                    <Fragment key={menuItem.url}>
-                      <li key={menuItem.url}>
-                        <a className="nav-link active" href="/">{menuItem.title}</a>
-                      </li>
-                    </Fragment>
-                  )
-                } else {
+              {
+                this.state.menu.map((menuItem) => {
+                  if (menuItem.active) {
                     return (
                       <Fragment key={menuItem.url}>
                         <li key={menuItem.url}>
-                          <a className="nav-link" href="/">{menuItem.title}</a>
+                          <Link className="nav-link active" to={menuItem.url}>{menuItem.title}</Link>
                         </li>
                       </Fragment>
                     )
+                  } else {
+                    return (
+                      <Fragment key={menuItem.url}>
+                        <li key={menuItem.url}>
+                          <Link className="nav-link" to={menuItem.url}>{menuItem.title}</Link>
+                        </li>
+                      </Fragment>
+                    )
+                  }
                 }
-              }
               )}
             </ul>
           </div>

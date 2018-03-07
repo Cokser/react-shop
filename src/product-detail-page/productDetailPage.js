@@ -1,7 +1,7 @@
 import React from 'react';
 import 'productDetailPage.css';
 
-export default class HomePage extends React.Component {
+export default class productDetailPage extends React.Component {
 
   constructor(props) {
 

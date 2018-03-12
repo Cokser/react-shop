@@ -1,8 +1,8 @@
 import React from 'react';
 import './products.component.css';
-import { ProductListComponent, ProductFormComponent } from './index.js';
+import { ProductFormComponent } from './index.js';
 import Modal from '../shared/modal/modal';
-
+import ProductListItemComponent from "./product-list/product-list-item/product-list-item.component";
 
 export default class ProductsComponent extends React.Component {
 
@@ -11,18 +11,25 @@ export default class ProductsComponent extends React.Component {
     super(props);
 
     this.state = {
+      count: props.count,
+      mode: props.mode,
       error: null,
       isLoaded: false,
       showModal: false,
       products: []
     };
-  }
+	}
   
-  componentDidCatch(error, info) {
+  componentDidCatch(error) {
     this.setState({ error })
   }
 
-  componentDidMount() {
+
+	goToProductPage(id) {
+		this.props.history.push(`/products/${id}`);
+	}
+
+	componentDidMount() {
     this.fetchData();
   }
 
@@ -31,9 +38,10 @@ export default class ProductsComponent extends React.Component {
       .then((res) => res.json())
       .then(
       (result) => {
-        this.setState({
+        let countedProducts = result.products.slice(0,this.state.count-1);
+          this.setState({
           isLoaded: true,
-          products: result.products
+          products: countedProducts
         });
       },
       (error) => {
@@ -83,7 +91,14 @@ export default class ProductsComponent extends React.Component {
   showProducts() {
     if (this.state.products.length > 0 ) {
       return (
-        <ProductListComponent productList={this.state.products} />
+				<div className="row products-container">
+					{this.state.products.map((product) => {
+						return <ProductListItemComponent
+							key={product.id}
+							goToDetail={this.goToProductPage.bind(this)}
+							product={product} />;
+					})}
+				</div>
       );
     }
   }
@@ -95,6 +110,7 @@ export default class ProductsComponent extends React.Component {
   handleHide() {
     this.setState({ showModal: false });
   }
+
   render() {
     const modal = this.state.showModal ? (
       <Modal>
@@ -114,12 +130,16 @@ export default class ProductsComponent extends React.Component {
         </div>
       </Modal>
     ) : null;
+    const mode = this.state.mode === 'catalog' ? (
+        <button type="button"
+                className="btn btn-primary"
+                onClick={this.handleShow.bind(this)}>Show Modal
+        </button>
+    ) : null;
+
     return (
       <div className="container-fluid">
-        <button type="button"
-          className="btn btn-primary"
-          onClick={this.handleShow.bind(this)}>Show Modal
-        </button>
+        {mode}
         {modal}
         <div className="container">
           {this.showProducts()}          

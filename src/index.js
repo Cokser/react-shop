@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-import { Route, Switch } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import ProductsPage from './products-page/productsPage';
 import Header from "./shared/header/header";
 import HomePage from "./home-page/homePage";
+import ProductDetailPage from "./product-detail-page/productDetailPage";
 
 const App = () => (
   <BrowserRouter>
@@ -14,7 +14,8 @@ const App = () => (
       <main>
         <Switch>
           <Route exact path='/' component={HomePage}/>
-          <Route path='/productsPage' component={ProductsPage}/>
+          <Route exact path='/products' component={ProductsPage}/>
+          <Route path='/products/:id' component={ProductDetailPage}/>
         </Switch>
       </main>
     </div>

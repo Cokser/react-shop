@@ -3,19 +3,16 @@
     {
       "title": "Home",
       "url": "/",
-      "active": true,
       "children" : []
     },
     {
       "title": "Products",
-      "url": "/productsPage",
-      "active": false,
+      "url": "/products",
       "children" : []
     },
     {
       "title": "About Us",
-      "url": "/aboutUsPage",
-      "active": false,
+      "url": "/about",
       "children" : []
     }
   ]

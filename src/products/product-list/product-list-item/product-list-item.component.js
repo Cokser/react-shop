@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
 import "./product-list-item.component.css";
+// import {BrowserRouter as Router, Route, HashRouter} from 'react-router-dom';
 
 export default class ProductListItemComponent extends React.Component {
 
@@ -11,9 +12,16 @@ export default class ProductListItemComponent extends React.Component {
     this.productValues = Object.values(props.product);
   }
 
+	handleClick(e) {
+		e.preventDefault();
+
+		this.props.goToDetail(this.props.product.id);
+	}
+
   render () {
     return (
-      <div className="col-xs-12 col-sm-5 col-md-3 p-0">
+      <div className="col-xs-12 col-sm-5 col-md-3 p-0"
+        onClick={this.handleClick.bind(this)}>
         <article className="card product-item">
           <header className="card-header">
             <p className="card-title">{this.props.product.name}</p>

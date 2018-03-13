@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import './header.css';
-import { NavLink  } from 'react-router-dom';
+import { NavLink, Route  } from 'react-router-dom';
+import ActiveRoute from "../../active-route/activeRoute";
 
 export default class Header extends React.Component {
 
@@ -45,11 +46,13 @@ export default class Header extends React.Component {
     return (
       <header className="row mx-0">
         <nav className="navbar navbar-expand-lg navbar-light container">
+					<Route path='/' component={ActiveRoute}/>
           <button className="navbar-toggler d-lg-none"
                   type="button"
                   aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="nav navbar-nav">
               {

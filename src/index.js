@@ -8,18 +8,20 @@ import HomePage from "./home-page/homePage";
 import ProductDetailPage from "./product-detail-page/productDetailPage";
 
 const App = () => (
-  <BrowserRouter>
-    <div>
-      <Header />
-      <main>
-        <Switch>
-          <Route exact path='/' component={HomePage}/>
-          <Route exact path='/products' component={ProductsPage}/>
-          <Route path='/products/:id' component={ProductDetailPage}/>
-        </Switch>
-      </main>
-    </div>
-  </BrowserRouter>
-);
-
+	<BrowserRouter>
+		<div className="container-fluid">
+			<Header />
+			{/*<aside className="float-left">*/}
+				{/*<Route path='/' component={ActiveRoute}/>*/}
+			{/*</aside>*/}
+			<main>
+				<Switch>
+					<Route exact path='/' component={HomePage}/>
+					<Route exact path='/products' component={ProductsPage}/>
+					<Route path='/products/:id' component={ProductDetailPage}/>
+				</Switch>
+			</main>
+		</div>
+	</BrowserRouter>
+	);
 render(<App />, document.getElementById("root"));

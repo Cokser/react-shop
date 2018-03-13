@@ -11,9 +11,6 @@ const App = () => (
 	<BrowserRouter>
 		<div className="container-fluid">
 			<Header />
-			{/*<aside className="float-left">*/}
-				{/*<Route path='/' component={ActiveRoute}/>*/}
-			{/*</aside>*/}
 			<main>
 				<Switch>
 					<Route exact path='/' component={HomePage}/>

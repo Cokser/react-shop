@@ -3,8 +3,9 @@ import './products.component.css';
 import { ProductFormComponent } from './index.js';
 import Modal from '../shared/modal/modal';
 import ProductListItemComponent from "./product-list-item/product-list-item.component";
+import WithLoading from "../shared/with-loading/withLoading";
 
-export default class ProductsComponent extends React.Component {
+class ProductsComponent extends React.Component {
 
   constructor(props) {
 
@@ -16,42 +17,23 @@ export default class ProductsComponent extends React.Component {
       error: null,
       isLoaded: false,
       showModal: false,
-      products: []
+      products: props.products
     };
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			products: nextProps.products
+		});
 	}
   
   componentDidCatch(error) {
     this.setState({ error })
   }
 
-
 	goToProductPage(id) {
 		this.props.history.push(`/products/${id}`);
 	}
-
-	componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    fetch('json/products.json')
-      .then((res) => res.json())
-      .then(
-      (result) => {
-        let countedProducts = result.products.slice(0,this.state.count-1);
-          this.setState({
-          isLoaded: true,
-          products: countedProducts
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-      )
-  }
 
   postFethcData() {
     // fetch('json/products.json', {
@@ -138,6 +120,7 @@ export default class ProductsComponent extends React.Component {
     ) : null;
 
     return (
+
       <div className="container-fluid">
         {mode}
         {modal}
@@ -148,3 +131,5 @@ export default class ProductsComponent extends React.Component {
     )
   }
 }
+
+export default WithLoading(ProductsComponent, 'json/products.json');

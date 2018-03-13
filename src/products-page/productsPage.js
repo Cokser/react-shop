@@ -2,7 +2,7 @@ import React from 'react';
 import './productsPage.css';
 import ProductsComponent from "../products/products.component";
 
-export default class ProductsPage extends React.Component {
+class ProductsPage extends React.Component {
 
   // constructor(props) {
 	//
@@ -25,3 +25,5 @@ export default class ProductsPage extends React.Component {
     );
   }
 }
+
+export default ProductsPage;

@@ -1,9 +1,9 @@
 import React from 'react';
-import './withLoading.css';
+import './WithLoading.css';
 
-function WithLoading(Component, dataUrl ) {
+function withLoading(Component, dataUrl ) {
 
-	return class Loader extends React.Component {
+	class Loader extends React.Component {
 
 		constructor(props) {
 
@@ -26,10 +26,11 @@ function WithLoading(Component, dataUrl ) {
 					(result) => {
 						this.setState({
 							isLoaded: true,
-							data: result.products
+							data: result.data
 						});
 					},
 					(error) => {
+            console.log(error);
 						this.setState({
 							isLoaded: true,
 							error
@@ -41,15 +42,20 @@ function WithLoading(Component, dataUrl ) {
 		render() {
 			if (this.state.isLoaded) {
 				return <Component
-					products={this.state.data}
+					data={this.state.data}
 					{...this.props} />
 			}
 			return (
 				<button className="btn btn-sm btn-warning">
-				<span className="glyphicon glyphicon-refresh glyphicon-refresh-animate">
-				</span> Loading...</button>
+					<span className="glyphicon glyphicon-refresh glyphicon-refresh-animate" />
+					Loading...
+				</button>
 			)
 		}
 	}
+
+  Loader.displayName = `Loader(${Component.displayName || Component.name || 'Component'})`;
+	return Loader;
+
 }
-export default WithLoading;
+export default withLoading;

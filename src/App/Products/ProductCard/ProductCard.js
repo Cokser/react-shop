@@ -1,11 +1,11 @@
 import React, {Fragment} from "react";
 import PropTypes from 'prop-types';
-import "./product-list-item.component.css";
-// import {BrowserRouter as Router, Route, HashRouter} from 'react-router-dom';
+import './ProductCard.css';
 
-export default class ProductListItemComponent extends React.Component {
+export default class ProductCard extends React.Component {
 
   constructor(props) {
+
     super(props);
 
     this.productKeys = Object.keys(props.product);
@@ -14,14 +14,14 @@ export default class ProductListItemComponent extends React.Component {
 
 	handleClick(e) {
 		e.preventDefault();
-
 		this.props.goToDetail(this.props.product.id);
 	}
 
   render () {
     return (
       <div className="col-xs-12 col-sm-5 col-md-3 p-0"
-        onClick={this.handleClick.bind(this)}>
+        onClick={this.handleClick.bind(this)
+        }>
         <article className="card product-item">
           <header className="card-header">
             <p className="card-title">{this.props.product.name}</p>
@@ -30,11 +30,14 @@ export default class ProductListItemComponent extends React.Component {
             <dl styles="display: inline-block">
               {
                 this.productKeys.map((productProp, index) => {
+
                   if (productProp === 'id' ||
                     productProp === 'name' ||
                     productProp === 'count' ) {
                     return null;
+
                   } else {
+
                     return (
                       <Fragment key={index}>
                         <dt className="card-text" >{productProp}</dt>
@@ -55,7 +58,7 @@ export default class ProductListItemComponent extends React.Component {
   }
 }
 
-ProductListItemComponent.propTypes = {
+ProductCard.propTypes = {
   product: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string,

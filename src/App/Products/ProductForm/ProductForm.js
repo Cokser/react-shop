@@ -1,8 +1,7 @@
-import React from "react";
-import "./product-form.component.css";
-import { FormErrorsComponent } from "./form-errors/form-errors.component";
+import React from 'react';
+import { FormErrors } from './FormErrors/FormErrors';
 
-export default class ProductFormComponent extends React.Component {
+export default class ProductForm extends React.Component {
   
   constructor(props) {
 
@@ -151,7 +150,7 @@ export default class ProductFormComponent extends React.Component {
           className="col-md-8 col-xs-10 mx-auto"
         >
           <div className="panel panel-default">
-            <FormErrorsComponent formErrors={this.state.formErrors} />
+            <FormErrors formErrors={this.state.formErrors} />
           </div>
           <div className="form-group">
             <label htmlFor="name">Product Name</label>

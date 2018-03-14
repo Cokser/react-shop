@@ -23,7 +23,7 @@ export default class Validator extends React.Component  {
   constructor(props) {
     super(props);
 
-    this.errorsList = []
+    this.errorsList = [];
     this.state = {
       value: props.validateValue,
       validators: props.validators,

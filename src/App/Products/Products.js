@@ -1,11 +1,12 @@
 import React from 'react';
-import './products.component.css';
-import { ProductFormComponent } from './index.js';
-import Modal from '../shared/modal/modal';
-import ProductListItemComponent from "./product-list-item/product-list-item.component";
-import WithLoading from "../shared/with-loading/withLoading";
 
-class ProductsComponent extends React.Component {
+import './Products.css';
+import ProductForm from './ProductForm/ProductForm';
+import Modal from '../../shared/Modal/Modal';
+import ProductCard from './ProductCard/ProductCard';
+import withLoading from '../../shared/WithLoading/WithLoading';
+
+class Products extends React.Component {
 
   constructor(props) {
 
@@ -17,14 +18,13 @@ class ProductsComponent extends React.Component {
       error: null,
       isLoaded: false,
       showModal: false,
-      products: props.products
     };
+
+    this.products = props.data
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.setState({
-			products: nextProps.products
-		});
+    this.products = nextProps.data
 	}
   
   componentDidCatch(error) {
@@ -36,14 +36,14 @@ class ProductsComponent extends React.Component {
 	}
 
   postFethcData() {
-    // fetch('json/products.json', {
+    // fetch('json/Products.json', {
     //   method: 'POST',
     //   headers: {
     //     'Accept': 'application/json',
     //     'Content-Type': 'application/json',
     //   },
     //   body: JSON.stringify({
-    //     'products': this.state.products
+    //     'Products': this.state.Products
     //   })
     // })
     // .then((data) => console.log('god bless', data))
@@ -51,36 +51,37 @@ class ProductsComponent extends React.Component {
 
   addProduct(newProduct) {
 
-    let currentState = Object.assign(this.state);
-    let products = currentState.products.concat(newProduct);
-    
-    this.setState({
-      products: products
-    });
+    this.products = this.products.concat(newProduct);
 
     this.postFethcData();
     this.handleHide();
   }
 
   setId() {
-    if (this.state.products.length === 0) {
+
+    if (this.products.length === 0) {
       return 1;
     } else {
-      return this.state.products[this.state.products.length - 1].id + 1
+      return this.products[this.products.length - 1].id + 1
     }
   }
 
   showProducts() {
-    if (this.state.products.length > 0 ) {
+
+    let products = this.products.slice(0,this.state.count-1);
+
+    if (products.length > 0 ) {
       return (
-				<div className="row products-container">
-					{this.state.products.map((product) => {
-						return <ProductListItemComponent
-							key={product.id}
-							goToDetail={this.goToProductPage.bind(this)}
-							product={product} />;
-					})}
-				</div>
+
+        <div className="row products-container">
+          {products.map((product) => {
+            return <ProductCard
+              key={product.id}
+              goToDetail={this.goToProductPage.bind(this)}
+              product={product} />;
+          })}
+        </div>
+
       );
     }
   }
@@ -94,12 +95,13 @@ class ProductsComponent extends React.Component {
   }
 
   render() {
+
     const modal = this.state.showModal ? (
       <Modal>
         <div className="form-modal" >
           <div className="modal-ovarlay" onClick={this.handleHide.bind(this)} />
           <div className="modal-body col-lg-4 col-md-6 col-xs-10" >
-            <ProductFormComponent
+            <ProductForm
               addSubmitted={this.addProduct.bind(this)}
               id={this.setId()}
             />
@@ -112,9 +114,10 @@ class ProductsComponent extends React.Component {
         </div>
       </Modal>
     ) : null;
+
     const mode = this.state.mode === 'catalog' ? (
         <button type="button"
-                className="btn btn-primary"
+                className="btn btn-primary mx-auto"
                 onClick={this.handleShow.bind(this)}>Show Modal
         </button>
     ) : null;
@@ -128,8 +131,9 @@ class ProductsComponent extends React.Component {
           {this.showProducts()}          
         </div>
       </div>
+
     )
   }
 }
 
-export default WithLoading(ProductsComponent, 'json/products.json');
+export default withLoading(Products, 'json/products.json');

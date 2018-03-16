@@ -37,7 +37,6 @@ class Header extends React.Component {
                   aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
-
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="nav navbar-nav">
               {

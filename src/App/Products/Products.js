@@ -35,7 +35,7 @@ class Products extends React.Component {
 		this.props.history.push(`/products/${id}`);
 	}
 
-  postFethcData() {
+  postFetchData() {
     // fetch('json/Products.json', {
     //   method: 'POST',
     //   headers: {
@@ -53,7 +53,7 @@ class Products extends React.Component {
 
     this.products = this.products.concat(newProduct);
 
-    this.postFethcData();
+    this.postFetchData();
     this.handleHide();
   }
 

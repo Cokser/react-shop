@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './Products.css';
 import ProductForm from './ProductForm/ProductForm';
@@ -20,7 +21,8 @@ class Products extends React.Component {
       showModal: false,
     };
 
-    this.products = props.data
+    this.products = props.data;
+
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -135,5 +137,7 @@ class Products extends React.Component {
     )
   }
 }
+
+Products = connect()(Products);
 
 export default withLoading(Products, 'json/products.json');

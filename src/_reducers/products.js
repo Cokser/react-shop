@@ -1,4 +1,4 @@
-import {ADD_PRODUCT} from '../_actions/actions';
+import {ADD_PRODUCT} from '../_actions/index';
 
 const initialState = [
   {
@@ -10,7 +10,7 @@ const initialState = [
   }
 ];
 
-export default function products(state = initialState, action) {
+export default function products (state = initialState, action) {
     switch (action.type) {
       case ADD_PRODUCT: {
         return [

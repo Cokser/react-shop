@@ -103,7 +103,7 @@ class Products extends React.Component {
   }
 
   render() {
-
+    
     const modal = this.state.showModal ? (
       <Modal>
         <div className="form-modal" >

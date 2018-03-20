@@ -8,7 +8,6 @@ class Header extends React.Component {
 
     super(props);
 
-    console.log(props);
     this.menu = [
       {
         "title": "Home",

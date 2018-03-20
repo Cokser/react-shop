@@ -7,6 +7,8 @@ import Modal from '../../shared/Modal/Modal';
 import ProductCard from './ProductCard/ProductCard';
 import withLoading from '../../shared/WithLoading/WithLoading';
 
+
+
 class Products extends React.Component {
 
   constructor(props) {
@@ -22,12 +24,16 @@ class Products extends React.Component {
     };
 
     this.products = props.data;
-
 	}
 
 	componentWillReceiveProps(nextProps) {
-    this.products = nextProps.data
+    this.products = nextProps.data;
 	}
+
+  componentDidMount() {
+    const store = this.context;
+    console.log(this.props, store);
+  }
   
   componentDidCatch(error) {
     this.setState({ error })

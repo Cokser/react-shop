@@ -8,13 +8,12 @@ import Header from '../shared/Header/header';
 
 
 class App extends React.Component {
-
-  constructor(props) {
-
-    super(props);
-    console.log(props);
-
-  }
+  //
+  // constructor(props) {
+  //
+  //   super(props);
+  //
+  // }
 
   // componentDidMount(error) {
   //

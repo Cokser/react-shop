@@ -1,40 +1,29 @@
 import {ADD_PRODUCT, GET_PRODUCTS, GET_PRODUCTS_REQUEST, GET_PRODUCTS_ERROR} from '../_actions/index';
 
-const initialState = [
-  {
-    "data": [],
-    "isLoaded": "false"
-  }
-];
-
-export default function products (state = initialState, action) {
+export default function products (state = [], action) {
 
   switch (action.type) {
+
     case ADD_PRODUCT: {
 
       return [
         ...state,
-        action.payload
+        action.product
       ]
     }
 
     case GET_PRODUCTS: {
-      console.log(state, action);
       return {
         ...state,
-        data: action.data,
-        isLoaded: action.isLoaded
-      }
+        data: action.data
+      }.data;
     }
 
     case GET_PRODUCTS_REQUEST: {
 
       return [
-        ...state,
-        {
-          data: action.data,
-          isLoaded: action.isLoaded
-        }
+        state.data,
+        action
       ]
     }
     case GET_PRODUCTS_ERROR: {

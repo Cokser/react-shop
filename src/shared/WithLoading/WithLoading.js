@@ -1,21 +1,21 @@
 import React from 'react';
 import './WithLoading.css';
-// import { getAllProducts } from './../../_actions';
+import { getProducts } from './../../_actions';
 
 import { connect } from 'react-redux';
-import {GET_PRODUCTS} from '../../_actions';
+// import {GET_PRODUCTS} from '../../_actions';
 
 function withLoading(Component, dataUrl ) {
 
 	class Loader extends React.Component {
 
-		// constructor(props) {
-    //
-		// 	super(props);
-		// }
+		constructor(props) {
+
+			super(props);
+      this.state = {isLoaded: false}
+		}
 
 		componentDidMount() {
-      // this.props.dispatch(getAllProducts(dataUrl));
       this.fetchData();
 		}
 
@@ -24,12 +24,11 @@ function withLoading(Component, dataUrl ) {
 				.then((res) => res.json())
 				.then(
 					(result) => {
-
-            this.props.dispatch({
-              type: GET_PRODUCTS,
-              data: result.data,
+					  this.setState({
               isLoaded: true
             });
+            this.props.dispatch(getProducts(result.data));
+
 					},
 					(error) => {
             console.log(error);
@@ -39,7 +38,7 @@ function withLoading(Component, dataUrl ) {
 
 		render() {
 
-      if (this.props.isLoaded) {
+      if (this.state.isLoaded) {
 				return <Component
 					data={this.props.data}
 					{...this.props} />
@@ -58,10 +57,8 @@ function withLoading(Component, dataUrl ) {
 
 
   const mapStateToProps = state => {
-    console.log(state);
     return {
-      data: state.products.data,
-      isLoaded: state.products.isLoaded
+      data: state.products
     }
   };
 
@@ -70,7 +67,6 @@ function withLoading(Component, dataUrl ) {
 	return Loader;
 
 }
-
 
 
 export default withLoading;

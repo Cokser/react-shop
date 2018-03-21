@@ -6,25 +6,24 @@ import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
 import HomePage from './HomePage/HomePage';
 import Header from '../shared/Header/header';
 
+const App  = () => {
+  return (
 
-class App extends React.Component {
+    <BrowserRouter>
+      <div className="container-fluid">
+        <Header/>
+        <main className="row">
+          <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/products" component={ProductsPage}/>
+            <Route path="/products/:id" component={ProductDetailPage}/>
+            <Redirect to="/"/>
+          </Switch>
+        </main>
+      </div>
+    </BrowserRouter>
 
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="container-fluid">
-          <Header/>
-          <main className="row">
-            <Switch>
-              <Route exact path="/" component={HomePage}/>
-              <Route exact path="/products" component={ProductsPage}/>
-              <Route path="/products/:id" component={ProductDetailPage}/>
-              <Redirect to="/"/>
-            </Switch>
-          </main>
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+  );
+};
+
 export default App;

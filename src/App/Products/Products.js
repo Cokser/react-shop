@@ -6,6 +6,7 @@ import ProductForm from './ProductForm/ProductForm';
 import Modal from '../../shared/Modal/Modal';
 import ProductCard from './ProductCard/ProductCard';
 import withLoading from '../../shared/WithLoading/WithLoading';
+import {addProduct} from '../../_actions';
 
 
 
@@ -23,18 +24,19 @@ class Products extends React.Component {
       showModal: false,
     };
 
-    this.products = props.data;
+    // this.products = props.data;
 	}
 
-	componentWillReceiveProps(nextProps) {
-    this.products = nextProps.data;
-	}
+	// componentWillReceiveProps(nextProps) {
+   //  // this.products = nextProps.data;
+   //  const store = this.context;
+   //  console.log(store);
+	// }
 
   componentDidMount() {
-    const store = this.context;
-    console.log(this.props, store);
+    console.log(this.props);
   }
-  
+  //
   componentDidCatch(error) {
     this.setState({ error })
   }
@@ -44,6 +46,7 @@ class Products extends React.Component {
 	}
 
   postFetchData() {
+
     // fetch('json/Products.json', {
     //   method: 'POST',
     //   headers: {
@@ -59,7 +62,9 @@ class Products extends React.Component {
 
   addProduct(newProduct) {
 
-    this.products = this.products.concat(newProduct);
+    // this.props.data = this.props.data.concat(newProduct);
+
+    this.props.dispatch(addProduct(newProduct));
 
     this.postFetchData();
     this.handleHide();
@@ -67,16 +72,16 @@ class Products extends React.Component {
 
   setId() {
 
-    if (this.products.length === 0) {
+    if (this.props.data.length === 0) {
       return 1;
     } else {
-      return this.products[this.products.length - 1].id + 1
+      return this.props.data[this.props.data.length - 1].id + 1
     }
   }
 
   showProducts() {
 
-    let products = this.products.slice(0,this.state.count-1);
+    let products = this.props.data.slice(0,this.state.count-1);
 
     if (products.length > 0 ) {
       return (
@@ -103,7 +108,7 @@ class Products extends React.Component {
   }
 
   render() {
-    
+
     const modal = this.state.showModal ? (
       <Modal>
         <div className="form-modal" >
@@ -144,6 +149,30 @@ class Products extends React.Component {
   }
 }
 
-Products = connect()(Products);
+// const mapDispatchToProps = state => {
+//
+//   return {
+//     data: state.products,
+//   }
+// };
+
+// const mapStateToProps = (state) => {
+//   return {
+//     todos: getVisibleTodos(state.todos, state.visibilityFilter)
+//   }
+// };
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onTodoClick: (id) => {
+//       dispatch(toggleTodo(id))
+//     }
+//   }
+// };
+
+Products = connect(
+  // mapStateToProps,
+  // mapDispatchToProps
+)(Products);
 
 export default withLoading(Products, 'json/products.json');

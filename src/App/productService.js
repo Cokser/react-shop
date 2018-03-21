@@ -22,12 +22,8 @@
 // }
 
 export function getProducts(dataUrl) {
-
-
-  console.log('hello reducer', dataUrl);
   return fetch(dataUrl)
     .then(handleResponse);
-
 }
 
 function handleResponse(response) {
@@ -36,7 +32,6 @@ function handleResponse(response) {
     return Promise.reject(response.statusText);
   }
 
-  console.log(response.json());
   return response.json();
 
 }

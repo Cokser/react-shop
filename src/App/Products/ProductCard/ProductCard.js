@@ -1,8 +1,8 @@
-import React, {Fragment} from "react";
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import './ProductCard.css';
 
-export default class ProductCard extends React.Component {
+export default class ProductCard extends Component {
 
   constructor(props) {
 
@@ -10,18 +10,26 @@ export default class ProductCard extends React.Component {
 
     this.productKeys = Object.keys(props.product);
     this.productValues = Object.values(props.product);
+
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
-	handleClick(e) {
-		e.preventDefault();
-		this.props.goToDetail(this.props.product.id);
-	}
+  handleClick(e) {
 
-  render () {
+    e.preventDefault();
+    this.props.goToDetail(this.props.product.id);
+
+  }
+
+  render() {
+
     return (
-      <div className="col-xs-12 col-sm-5 col-md-3 p-0"
-        onClick={this.handleClick.bind(this)
-        }>
+      <div
+        className="col-xs-12 col-sm-5 col-md-3 p-0"
+        onClick={this.handleClick
+        }
+      >
         <article className="card product-item">
           <header className="card-header">
             <p className="card-title">{this.props.product.name}</p>
@@ -33,18 +41,19 @@ export default class ProductCard extends React.Component {
 
                   if (productProp === 'id' ||
                     productProp === 'name' ||
-                    productProp === 'count' ) {
+                    productProp === 'count') {
+
                     return null;
 
-                  } else {
-
-                    return (
-                      <Fragment key={index}>
-                        <dt className="card-text" >{productProp}</dt>
-                        <dd className="card-text" >{this.productValues[index]}</dd>
-                      </Fragment>
-                    )
                   }
+
+                  return (
+                    <Fragment key={productProp}>
+                      <dt className="card-text">{productProp}</dt>
+                      <dd className="card-text">{this.productValues[index]}</dd>
+                    </Fragment>
+                  );
+
                 })
               }
             </dl>
@@ -54,8 +63,10 @@ export default class ProductCard extends React.Component {
           </footer>
         </article>
       </div>
-    )
+    );
+
   }
+
 }
 
 ProductCard.propTypes = {
@@ -66,6 +77,6 @@ ProductCard.propTypes = {
     id: PropTypes.number.isRequired,
     size: PropTypes.number,
     weight: PropTypes.string,
-    material: PropTypes.string
-  }) 
-}
+    material: PropTypes.string,
+  }).isRequired,
+};

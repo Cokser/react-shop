@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './Products.css';
@@ -6,11 +6,10 @@ import ProductForm from './ProductForm/ProductForm';
 import Modal from '../../shared/Modal/Modal';
 import ProductCard from './ProductCard/ProductCard';
 import withLoading from '../../shared/WithLoading/WithLoading';
-import {addProduct} from '../../_actions';
+import { addProduct } from '../../_actions';
 
 
-
-class Products extends React.Component {
+class Products extends Component {
 
   constructor(props) {
 
@@ -19,31 +18,21 @@ class Products extends React.Component {
     this.state = {
       count: props.count,
       mode: props.mode,
-      error: null,
-      isLoaded: false,
       showModal: false,
     };
 
-    // this.products = props.data;
-	}
+    this.handleHide = this.handleHide.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.goToProductPage = this.goToProductPage.bind(this);
+    this.addProduct = this.addProduct.bind(this);
 
-	// componentWillReceiveProps(nextProps) {
-   //  // this.products = nextProps.data;
-   //  const store = this.context;
-   //  console.log(store);
-	// }
-
-  componentDidMount() {
-    console.log(this.props);
-  }
-  //
-  componentDidCatch(error) {
-    this.setState({ error })
   }
 
-	goToProductPage(id) {
-		this.props.history.push(`/products/${id}`);
-	}
+  goToProductPage(id) {
+
+    this.props.history.push(`/products/${id}`);
+
+  }
 
   postFetchData() {
 
@@ -62,65 +51,73 @@ class Products extends React.Component {
 
   addProduct(newProduct) {
 
-    // this.props.data = this.props.data.concat(newProduct);
-
     this.props.dispatch(addProduct(newProduct));
 
     this.postFetchData();
     this.handleHide();
+
   }
 
   setId() {
 
     if (this.props.data.length === 0) {
+
       return 1;
-    } else {
-      return this.props.data[this.props.data.length - 1].id + 1
+
     }
+    return this.props.data[this.props.data.length - 1].id + 1;
+
   }
 
   showProducts() {
 
-    let products = this.props.data.slice(0,this.state.count-1);
+    const products = this.props.data.slice(0, this.state.count - 1);
 
-    if (products.length > 0 ) {
+    if (products.length > 0) {
+
       return (
 
         <div className="row products-container">
-          {products.map((product) => {
-            return <ProductCard
-              key={product.id}
-              goToDetail={this.goToProductPage.bind(this)}
-              product={product} />;
-          })}
+          {products.map(product => (<ProductCard
+            key={product.id}
+            goToDetail={this.goToProductPage}
+            product={product}
+          />))}
         </div>
 
       );
+
     }
+
   }
 
   handleShow() {
+
     this.setState({ showModal: true });
+
   }
 
   handleHide() {
+
     this.setState({ showModal: false });
+
   }
 
   render() {
 
     const modal = this.state.showModal ? (
       <Modal>
-        <div className="form-modal" >
-          <div className="modal-ovarlay" onClick={this.handleHide.bind(this)} />
-          <div className="modal-body col-lg-4 col-md-6 col-xs-10" >
+        <div className="form-modal">
+          <div className="modal-ovarlay" onClick={this.handleHide} />
+          <div className="modal-body col-lg-4 col-md-6 col-xs-10">
             <ProductForm
-              addSubmitted={this.addProduct.bind(this)}
+              addSubmitted={this.addProduct}
               id={this.setId()}
             />
             <button
               className="btn btn-primary"
-              onClick={this.handleHide.bind(this)}>
+              onClick={this.handleHide}
+            >
               Cancel
             </button>
           </div>
@@ -129,10 +126,12 @@ class Products extends React.Component {
     ) : null;
 
     const mode = this.state.mode === 'catalog' ? (
-        <button type="button"
-                className="btn btn-primary mx-auto"
-                onClick={this.handleShow.bind(this)}>Show Modal
-        </button>
+      <button
+        type="button"
+        className="btn btn-primary mx-auto"
+        onClick={this.handleShow}
+      >Show Modal
+      </button>
     ) : null;
 
     return (
@@ -141,12 +140,14 @@ class Products extends React.Component {
         {mode}
         {modal}
         <div className="container">
-          {this.showProducts()}          
+          {this.showProducts()}
         </div>
       </div>
 
-    )
+    );
+
   }
+
 }
 
 // const mapDispatchToProps = state => {
@@ -170,9 +171,6 @@ class Products extends React.Component {
 //   }
 // };
 
-Products = connect(
-  // mapStateToProps,
-  // mapDispatchToProps
-)(Products);
+Products = connect()(Products);
 
 export default withLoading(Products, 'json/products.json');

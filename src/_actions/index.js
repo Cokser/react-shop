@@ -1,6 +1,7 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT';
+export const GET_PRODUCT = 'GET_PRODUCT';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
-export const GET_PRODUCTS_REQUEST = 'GET_PRODUCTS_REQUEST';
+// export const GET_PRODUCTS_REQUEST = 'GET_PRODUCTS_REQUEST';
 export const GET_PRODUCTS_ERROR = 'GET_PRODUCTS_ERROR';
 
 export function addProduct(product) {
@@ -16,6 +17,15 @@ export function getProducts(data) {
 
   return {
     type: GET_PRODUCTS,
+    data,
+  };
+
+}
+
+export function getProduct(data) {
+
+  return {
+    type: GET_PRODUCT,
     data,
   };
 

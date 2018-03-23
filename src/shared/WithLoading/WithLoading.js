@@ -2,10 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './WithLoading.css';
-import { getProducts } from './../../_actions';
 
-
-function withLoading(Component, dataUrl) {
+function withLoading(Component, getList) {
 
   class Loader extends React.Component {
 
@@ -18,13 +16,25 @@ function withLoading(Component, dataUrl) {
 
     componentDidMount() {
 
-      this.fetchData();
+      // this.fetchData();
+      this.initData();
 
     }
 
-    fetchData() {
+    initData() {
 
-      fetch(dataUrl)
+      console.log(getList);
+      getList.get.forEach((getElement) => {
+
+        this.fetchData(getElement);
+
+      });
+
+    }
+
+    fetchData(getElement) {
+
+      fetch(getElement.url)
         .then(res => res.json())
         .then(
           (result) => {
@@ -32,7 +42,7 @@ function withLoading(Component, dataUrl) {
             this.setState({
               isLoaded: true,
             });
-            this.props.dispatch(getProducts(result.data));
+            this.props.dispatch(getElement.action(result.data));
 
           },
           (error) => {

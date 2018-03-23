@@ -6,7 +6,7 @@ import ProductForm from './ProductForm/ProductForm';
 import Modal from '../../shared/Modal/Modal';
 import ProductCard from './ProductCard/ProductCard';
 import withLoading from '../../shared/WithLoading/WithLoading';
-import { addProduct } from '../../_actions';
+import { addProduct, getProducts } from '../../_actions';
 
 
 class Products extends Component {
@@ -179,4 +179,9 @@ class Products extends Component {
 
 Products = connect()(Products);
 
-export default withLoading(Products, 'json/products.json');
+export default withLoading(Products, {
+  get: [{
+    url: '../json/Products.json',
+    action: getProducts,
+  }],
+});

@@ -1,5 +1,5 @@
 
-import { ADD_PRODUCT, GET_PRODUCTS, GET_PRODUCTS_REQUEST, GET_PRODUCTS_ERROR } from '../_actions/index';
+import { ADD_PRODUCT, GET_PRODUCTS, GET_PRODUCT, GET_PRODUCTS_ERROR } from '../_actions/index';
 
 export default function products(state = [], action) {
 
@@ -23,7 +23,7 @@ export default function products(state = [], action) {
 
     }
 
-    case GET_PRODUCTS_REQUEST: {
+    case GET_PRODUCT: {
 
       return [
         state.data,

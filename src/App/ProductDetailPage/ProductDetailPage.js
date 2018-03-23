@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import withLoading from '../../shared/WithLoading/WithLoading';
+import { getProduct } from './../../_actions';
 
 class ProductDetailPage extends Component {
 
@@ -51,4 +52,9 @@ class ProductDetailPage extends Component {
 
 }
 
-export default withLoading(ProductDetailPage, '../json/Products.json');
+export default withLoading(ProductDetailPage, {
+  get: [{
+    url: '../json/Products.json',
+    action: getProduct,
+  }],
+});

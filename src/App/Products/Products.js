@@ -34,7 +34,7 @@ class Products extends Component {
 
   }
 
-  postFetchData() {
+  postFetchData(product) {
 
     // fetch('json/Products.json', {
     //   method: 'POST',
@@ -47,13 +47,13 @@ class Products extends Component {
     //   })
     // })
     // .then((data) => console.log('god bless', data))
+    this.props.dispatch(addProduct(product));
+
   }
 
   addProduct(newProduct) {
 
-    this.props.dispatch(addProduct(newProduct));
-
-    this.postFetchData();
+    this.postFetchData(newProduct);
     this.handleHide();
 
   }
@@ -89,6 +89,8 @@ class Products extends Component {
 
     }
 
+    return null;
+
   }
 
   handleShow() {
@@ -108,7 +110,11 @@ class Products extends Component {
     const modal = this.state.showModal ? (
       <Modal>
         <div className="form-modal">
-          <div className="modal-ovarlay" onClick={this.handleHide} />
+          <div
+            className="modal-ovarlay"
+            role="presentation"
+            onClick={this.handleHide}
+          />
           <div className="modal-body col-lg-4 col-md-6 col-xs-10">
             <ProductForm
               addSubmitted={this.addProduct}

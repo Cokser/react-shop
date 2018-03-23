@@ -8,6 +8,7 @@ const FormErrors = ({ formErrors }) =>
           .map((fieldName) => {
 
               if (formErrors[fieldName].length > 0) {
+
                 return (
                   <p
                     className="alert alert-danger"
@@ -16,12 +17,11 @@ const FormErrors = ({ formErrors }) =>
                     {fieldName} {formErrors[fieldName]}
                   </p>
                 );
-              }
 
+              }
               return '';
 
-            }
-          )
+            })
       }
     </div>
   );

@@ -36,8 +36,14 @@ export default class ProductForm extends Component {
 
   handleChange(event) {
 
-    const name = event.target.name;
-    const value = event.target.value;
+    const { target: { name, value } } = event;
+    // const { name } = tempTarget;
+    // const { value } = tempTarget;
+
+    // const name = event.taget.name;
+    // const value = event.taget.value;
+
+    console.log(name, value);
 
     this.setState(
       { [name]: value },
@@ -53,10 +59,10 @@ export default class ProductForm extends Component {
   validateField(fieldName, value) {
 
     const formState = Object.assign(this.state);
-
     const fieldValidationErrors = formState.formErrors;
-    let nameValid = formState.nameValid,
-      countValid = formState.countValid;
+
+    let { nameValid } = formState;
+    let { countValid } = formState;
 
     switch (fieldName) {
 
@@ -77,7 +83,7 @@ export default class ProductForm extends Component {
         const requireValid = value.length > 0;
         fieldValidationErrors.count = requireValid ? '' : ' is required';
 
-        countValid = !isNaN(value);
+        countValid = !Number.isNaN(value);
         fieldValidationErrors.count = countValid ? '' : ' is not a number';
 
         countValid = (requireValid) ? countValid : requireValid;
@@ -169,7 +175,7 @@ export default class ProductForm extends Component {
           className="col-md-8 col-xs-10 mx-auto"
         >
           <div className="panel panel-default">
-            <FormErrors formErrors={this.state.formErrors}/>
+            <FormErrors formErrors={this.state.formErrors} />
           </div>
           <div className="form-group">
             <label htmlFor="name">Product Name</label>

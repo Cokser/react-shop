@@ -3,7 +3,7 @@ import ProductCard from './ProductCard/ProductCard';
 import ProductForm from './ProductForm/ProductForm';
 
 export {
-        Products,
-        ProductForm,
-        ProductCard
-        };
+  Products,
+  ProductForm,
+  ProductCard,
+};

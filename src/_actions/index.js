@@ -4,17 +4,21 @@ export const GET_PRODUCTS_REQUEST = 'GET_PRODUCTS_REQUEST';
 export const GET_PRODUCTS_ERROR = 'GET_PRODUCTS_ERROR';
 
 export function addProduct(product) {
+
   return {
     type: ADD_PRODUCT,
-    product
-  }
+    product,
+  };
+
 }
 
 export function getProducts(data) {
+
   return {
     type: GET_PRODUCTS,
-    data
-  }
+    data,
+  };
+
 }
 
 // export function getAllProducts(url) {

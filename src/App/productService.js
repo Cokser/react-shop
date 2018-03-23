@@ -22,14 +22,18 @@
 // }
 
 export function getProducts(dataUrl) {
+
   return fetch(dataUrl)
     .then(handleResponse);
+
 }
 
 function handleResponse(response) {
 
   if (!response.ok) {
+
     return Promise.reject(response.statusText);
+
   }
 
   return response.json();

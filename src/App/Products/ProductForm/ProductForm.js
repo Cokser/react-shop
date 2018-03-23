@@ -37,13 +37,6 @@ export default class ProductForm extends Component {
   handleChange(event) {
 
     const { target: { name, value } } = event;
-    // const { name } = tempTarget;
-    // const { value } = tempTarget;
-
-    // const name = event.taget.name;
-    // const value = event.taget.value;
-
-    console.log(name, value);
 
     this.setState(
       { [name]: value },

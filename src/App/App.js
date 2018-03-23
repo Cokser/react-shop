@@ -4,7 +4,7 @@ import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 import ProductsPage from './ProductsPage/ProductsPage';
 import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
 import HomePage from './HomePage/HomePage';
-import Header from '../shared/Header/header';
+import Header from '../shared/Header/Header';
 
 const App = () => (
 

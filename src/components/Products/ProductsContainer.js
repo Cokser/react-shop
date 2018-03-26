@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import './Products.css';
 import ProductForm from './ProductForm/ProductForm';
-import Modal from '../../shared/Modal/Modal';
+import Modal from '../../shared/components/Modal/Modal';
 import ProductCard from './ProductCard/ProductCard';
-import withLoading from '../../shared/WithLoading/WithLoading';
+import withLoading from '../../shared/hoc/WithLoading/WithLoading';
 import { addProduct, getProducts } from '../../_actions';
 
 
@@ -155,27 +155,6 @@ class Products extends Component {
   }
 
 }
-
-// const mapDispatchToProps = state => {
-//
-//   return {
-//     data: state.products,
-//   }
-// };
-
-// const mapStateToProps = (state) => {
-//   return {
-//     todos: getVisibleTodos(state.todos, state.visibilityFilter)
-//   }
-// };
-//
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onTodoClick: (id) => {
-//       dispatch(toggleTodo(id))
-//     }
-//   }
-// };
 
 Products = connect()(Products);
 

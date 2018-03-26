@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import withLoading from '../../shared/WithLoading/WithLoading';
-import { getProduct } from './../../_actions';
+import withLoading from '../../shared/hoc/WithLoading/WithLoading';
+import { getProduct } from '../../_actions/index';
 
 class ProductDetailPage extends Component {
 

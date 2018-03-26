@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductsComponent from '../Products/Products';
+import ProductsComponent from '../Products/ProductsContainer';
 
 const HomePage = props => (
   <div className="col-10 mx-auto">

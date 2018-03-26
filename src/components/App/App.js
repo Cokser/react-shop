@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
-import ProductsPage from './ProductsPage/ProductsPage';
-import ProductDetailPage from './ProductDetailPage/ProductDetailPage';
-import HomePage from './HomePage/HomePage';
-import Header from '../shared/Header/Header';
+import ProductsPage from '../ProductsPage/ProductsPage';
+import ProductDetailPage from '../ProductDetailPage/ProductDetailPage';
+import HomePage from '../HomePage/HomePage';
+import Header from '../../shared/components/Header/Header';
 
 const App = () => (
 

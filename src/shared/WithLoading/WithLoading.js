@@ -16,14 +16,12 @@ function withLoading(Component, getList) {
 
     componentDidMount() {
 
-      // this.fetchData();
       this.initData();
 
     }
 
     initData() {
 
-      console.log(getList);
       getList.get.forEach((getElement) => {
 
         this.fetchData(getElement);

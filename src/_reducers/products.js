@@ -25,12 +25,12 @@ export default function products(state = [], action) {
 
     case GET_PRODUCT: {
 
-      return [
-        state.data,
-        action,
-      ];
+      return {
+        data: action.data,
+      }.data;
 
     }
+
     case GET_PRODUCTS_ERROR: {
 
       return [

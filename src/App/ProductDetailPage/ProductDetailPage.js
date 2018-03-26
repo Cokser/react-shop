@@ -20,10 +20,36 @@ class ProductDetailPage extends Component {
 
   }
 
+  showProduct() {
+
+    if (this.product) {
+
+      const productKeys = this.product
+        ? Object.keys(this.product)
+        : null;
+
+      const productValues = this.product
+        ? Object.values(this.product)
+        : null;
+
+      return (
+        productKeys.map((productProp, index) => (
+          <tr key={productProp}>
+            <th scope="row">{productProp}</th>
+            <td>{productValues[index]}</td>
+          </tr>
+        ))
+      );
+
+    }
+
+    return null;
+
+  }
+
   render() {
 
-    const productKeys = Object.keys(this.product);
-    const productValues = Object.values(this.product);
+    [this.product] = [this.props.data[0]];
 
     return (
       <div className="col-8 mx-auto mt-2">
@@ -36,12 +62,7 @@ class ProductDetailPage extends Component {
           </thead>
           <tbody>
             {
-              productKeys.map((productProp, index) => (
-                <tr key={productProp}>
-                  <th scope="row">{productProp}</th>
-                  <td>{productValues[index]}</td>
-                </tr>
-              ))
+              this.showProduct()
             }
           </tbody>
         </table>

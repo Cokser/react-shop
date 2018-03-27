@@ -1,7 +1,20 @@
+import {
+  GET_PRODUCTS_STARTED,
+  GET_PRODUCTS_ERROR,
+  RECEIVE_PRODUCTS,
+  ADD_PRODUCT,
+  GET_PRODUCT } from '../_actions';
 
-import { ADD_PRODUCT, GET_PRODUCTS, GET_PRODUCT, GET_PRODUCTS_ERROR } from '../_actions/index';
+const initialState = {
+  isLoading: false,
+  loaded: false,
+  data: null,
+  error: null,
+};
 
-export default function products(state = [], action) {
+
+export default function products(state = initialState, action) {
+
 
   switch (action.type) {
 
@@ -14,20 +27,13 @@ export default function products(state = [], action) {
 
     }
 
-    case GET_PRODUCTS: {
+    case GET_PRODUCTS_STARTED: {
 
       return {
         ...state,
-        data: action.data,
-      }.data;
-
-    }
-
-    case GET_PRODUCT: {
-
-      return {
-        data: action.data,
-      }.data;
+        isLoading: true,
+        loaded: false,
+      };
 
     }
 
@@ -39,6 +45,31 @@ export default function products(state = [], action) {
       ];
 
     }
+
+    case RECEIVE_PRODUCTS: {
+
+      return {
+        ...state,
+        isLoading: false,
+        loaded: true,
+        data: action.payload,
+      };
+
+    }
+
+    case GET_PRODUCT: {
+
+      console.log(action);
+
+      return {
+        ...state,
+        isLoading: false,
+        loaded: true,
+        data: action.payload,
+      };
+
+    }
+
     default: {
 
       return state;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './WithLoading.css';
 
-function withLoading(Component, getList) {
+function withLoading(Component) {
 
   class Loader extends React.Component {
 
@@ -16,41 +16,41 @@ function withLoading(Component, getList) {
 
     componentDidMount() {
 
-      this.initData();
+      // this.initData();
 
     }
+    //
+    // initData() {
+    //
+    //   // getList.get.forEach((getElement) => {
+    //   //
+    //   //   this.fetchData(getElement);
+    //   //
+    //   // });
+    //
+    // }
 
-    initData() {
-
-      getList.get.forEach((getElement) => {
-
-        this.fetchData(getElement);
-
-      });
-
-    }
-
-    fetchData(getElement) {
-
-      fetch(getElement.url)
-        .then(res => res.json())
-        .then(
-          (result) => {
-
-            this.setState({
-              isLoaded: true,
-            });
-            this.props.dispatch(getElement.action(result.data));
-
-          },
-          (error) => {
-
-            console.log(error);
-
-          },
-        );
-
-    }
+    // fetchData(getElement) {
+    //
+    //   fetch(getElement.url)
+    //     .then(res => res.json())
+    //     .then(
+    //       (result) => {
+    //
+    //         this.setState({
+    //           isLoaded: true,
+    //         });
+    //         this.props.dispatch(getElement.action(result.data));
+    //
+    //       },
+    //       (error) => {
+    //
+    //         console.log(error);
+    //
+    //       },
+    //     );
+    //
+    // }
 
     render() {
 
@@ -77,9 +77,18 @@ function withLoading(Component, getList) {
   Loader.displayName = `Loader(${Component.displayName || Component.name || 'Component'})`;
 
 
-  const mapStateToProps = state => ({
-    data: state.products,
-  });
+  const mapStateToProps = (state) => {
+
+    console.log(state);
+    return {
+      data: state.products,
+    };
+
+  };
+
+  //   ({
+  //   data: state.products,
+  // });
 
   Loader = connect(mapStateToProps)(Loader);
 

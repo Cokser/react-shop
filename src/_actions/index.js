@@ -1,9 +1,7 @@
-export const ADD_PRODUCT = 'ADD_PRODUCT';
-export const GET_PRODUCT = 'GET_PRODUCT';
-export const GET_PRODUCTS = 'GET_PRODUCTS';
-// export const GET_PRODUCTS_REQUEST = 'GET_PRODUCTS_REQUEST';
-export const GET_PRODUCTS_ERROR = 'GET_PRODUCTS_ERROR';
+import requestActionCreator from '../shared/helpers/requestActionCreator';
 
+
+export const ADD_PRODUCT = 'ADD_PRODUCT';
 export function addProduct(product) {
 
   return {
@@ -13,15 +11,31 @@ export function addProduct(product) {
 
 }
 
-export function getProducts(data) {
+export const GET_PRODUCTS_STARTED = 'GET_PRODUCTS_STARTED';
+export const productIsLoading = bool => ({
+  type: GET_PRODUCTS_STARTED,
+  isLoading: bool,
+});
 
-  return {
-    type: GET_PRODUCTS,
-    data,
-  };
+export const GET_PRODUCTS_ERROR = 'REQUEST_ERROR';
+export const productsHasError = bool => ({
+  type: GET_PRODUCTS_ERROR,
+  hasError: bool,
+});
 
-}
+export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
+export const productsReceive = payload => ({
+  type: RECEIVE_PRODUCTS,
+  payload,
+});
 
+export const getProducts = requestActionCreator({
+  loadingAction: productIsLoading,
+  errorAction: productsHasError,
+  receivedAction: productsReceive,
+});
+
+export const GET_PRODUCT = 'GET_PRODUCT';
 export function getProduct(data) {
 
   return {
@@ -30,20 +44,3 @@ export function getProduct(data) {
   };
 
 }
-
-// export function getAllProducts(url) {
-//   return dispatch => {
-//
-//     dispatch(request());
-//
-//     getProducts(url)
-//       .then(
-//         data => dispatch(success(data)),
-//         error => dispatch(failure(error))
-//       );
-//   };
-//
-//   function request() { return { type: GET_PRODUCTS_REQUEST } }
-//   function success(data) { return { type: GET_PRODUCTS, data } }
-//   function failure(error) { return { type: GET_PRODUCTS_ERROR, error } }
-// }

@@ -9,16 +9,16 @@ class ProductDetailPage extends Component {
     super(props);
 
     this.product = {};
-    this.getProduct(props.data);
+    // this.getProduct(props.data);
 
   }
 
-  getProduct(productsList) {
-
-    this.product = productsList
-      .find(product => product.id === +this.props.match.params.id);
-
-  }
+  // getProduct(productsList) {
+  //
+  //   this.product = productsList
+  //     .find(product => product.id === +this.props.match.params.id);
+  //
+  // }
 
   showProduct() {
 

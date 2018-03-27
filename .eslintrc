@@ -17,6 +17,9 @@
     "no-class-assign": [
       "warn"
     ],
+    "no-underscore-dangle": [
+      "off"
+    ],
     "padded-blocks": [
       "error",
       "always"

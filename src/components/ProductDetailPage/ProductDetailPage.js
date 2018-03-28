@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import withLoading from '../../shared/hoc/WithLoading/WithLoading';
-import { getProduct } from '../../_actions/index';
 
 class ProductDetailPage extends Component {
 
@@ -13,6 +11,11 @@ class ProductDetailPage extends Component {
 
   }
 
+  componentDidMount() {
+
+    this.props.getProduct('../json/product.json');
+
+  }
   // getProduct(productsList) {
   //
   //   this.product = productsList
@@ -49,7 +52,7 @@ class ProductDetailPage extends Component {
 
   render() {
 
-    [this.product] = [this.props.data[0]];
+    this.product = this.props.data;
 
     return (
       <div className="col-8 mx-auto mt-2">
@@ -73,9 +76,4 @@ class ProductDetailPage extends Component {
 
 }
 
-export default withLoading(ProductDetailPage, {
-  get: [{
-    url: '../json/Products.json',
-    action: getProduct,
-  }],
-});
+export default ProductDetailPage;

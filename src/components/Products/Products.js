@@ -43,7 +43,7 @@ class Products extends Component {
 
   addProduct(newProduct) {
 
-    this.props.addProduct(newProduct);
+    this.props.addProduct(newProduct, '../json/Products.json');
     this.handleHide();
 
   }
@@ -98,8 +98,6 @@ class Products extends Component {
   }
 
   render() {
-
-    console.log(this.props);
 
     const modal = this.state.showModal ? (
       <Modal>

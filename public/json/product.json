@@ -1,7 +1,9 @@
 {
-  "name": "firstProd",
-  "description": "first product",
-  "count": 2,
-  "material": "plastic",
-  "id": 1
+  "data": {
+    "name": "firstProd",
+    "description": "first product",
+    "count": 2,
+    "material": "plastic",
+    "id": 1
+  }
 }

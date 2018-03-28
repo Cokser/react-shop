@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addProduct, getProducts } from '../../_actions';
+import { addProduct, getProducts } from '../../shared/_actions';
 
 import Products from './Products';
 

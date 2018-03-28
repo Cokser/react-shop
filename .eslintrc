@@ -17,6 +17,9 @@
     "no-class-assign": [
       "warn"
     ],
+    "no-multiple-empty-lines": [
+      "error"
+    ],
     "no-underscore-dangle": [
       "off"
     ],

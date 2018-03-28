@@ -1,12 +1,16 @@
 import Request from 'superagent';
+// TODO: filename is inconsistant with requestActionCreator
+// TODO: remove double multilines
 
 
 const addAction = ({ loadingAction, errorAction, receivedAction }) => {
 
+  // TODO: remove redudant variable
   const requestWrapper = (data, url) => {
 
     console.log(data, url);
 
+    // TODO: write real code an comment it, mock with just promise
     const request = (dispatch) => {
 
       dispatch(loadingAction(true));

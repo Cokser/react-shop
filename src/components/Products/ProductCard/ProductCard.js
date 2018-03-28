@@ -25,6 +25,7 @@ export default class ProductCard extends Component {
 
   render() {
 
+    // TODO: WTF with onClick format?
     return (
 
       <div

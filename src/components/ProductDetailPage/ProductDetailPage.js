@@ -52,6 +52,8 @@ class ProductDetailPage extends Component {
 
   render() {
 
+    // TODO: move it out of render, just use props.data or rename it to product
+    // you have defaultProps declaration for default value
     this.product = this.props.data;
 
     return (

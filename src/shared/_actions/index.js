@@ -1,7 +1,7 @@
 import requestActionCreator from '../helpers/requestActionCreator';
 import addAction from '../helpers/addAction';
 
-
+// TODO: split by separate files
 // --------------- ADD PRODUCT ACTION --------------- //
 
 export const ADD_PRODUCT_STARTED = 'ADD_PRODUCT_STARTED';

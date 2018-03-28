@@ -1,3 +1,4 @@
+// TODO: make rows in import to take similar width
 import {
   GET_PRODUCTS_STARTED,
   GET_PRODUCTS_ERROR,
@@ -15,9 +16,10 @@ const initialState = {
 };
 
 
+// TODO: use ES6 arrow function
 export default function products(state = initialState, action) {
 
-
+  // TODO: place reducers in a separate files or functions
   switch (action.type) {
 
     // --------------- ADD PRODUCT REDUCER --------------- //

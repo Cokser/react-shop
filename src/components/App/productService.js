@@ -21,6 +21,7 @@
 //     )
 // }
 
+// TODO: remove trash
 export function getProducts(dataUrl) {
 
   return fetch(dataUrl)

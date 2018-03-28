@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './Products.css';
+// TODO: if you have barrel file you can import with tree-shaking { one, two }
 import ProductForm from './ProductForm/ProductForm';
 import Modal from '../../shared/components/Modal/Modal';
 import ProductCard from './ProductCard/ProductCard';
@@ -10,17 +11,23 @@ import ProductCard from './ProductCard/ProductCard';
 
 
 class Products extends Component {
+  // TODO: new way of work with static properties
+  /*state = {
+      showModal: false
+  }*/
 
   constructor(props) {
 
     super(props);
 
+    // TODO: you don't need to save count or mode to props
     this.state = {
       count: props.count,
       mode: props.mode,
       showModal: false,
     };
 
+    // TODO: it can be done new way without bind
     this.handleHide = this.handleHide.bind(this);
     this.handleShow = this.handleShow.bind(this);
     this.goToProductPage = this.goToProductPage.bind(this);
@@ -34,6 +41,13 @@ class Products extends Component {
     this.props.getProducts(url);
 
   }
+
+  // TODO: new way of work with static properties
+  /*goToProductPage = (id) => {
+
+      this.props.history.push(`/products/${id}`);
+
+  }*/
 
   goToProductPage(id) {
 
@@ -99,6 +113,7 @@ class Products extends Component {
 
   render() {
 
+    // TODO: do not declare functions in render() because they will fire on each render
     const modal = this.state.showModal ? (
       <Modal>
         <div className="form-modal">
@@ -148,6 +163,7 @@ class Products extends Component {
 
 }
 
+// TODO: you should connect it through Products Container, why double connect?
 Products = connect()(Products);
 
 export default Products;

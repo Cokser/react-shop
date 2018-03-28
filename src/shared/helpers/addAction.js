@@ -1,6 +1,5 @@
 // import Request from 'superagent';
 
-
 const addAction = ({ loadingAction, errorAction, receivedAction }) => {
 
   const requestWrapper = (data, url) => {

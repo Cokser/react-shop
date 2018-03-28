@@ -8,7 +8,6 @@ import {
 } from '../_actions';
 
 const initialState = {
-  isLoading: false,
   isLoaded: false,
   data: null,
   hasError: null,
@@ -58,7 +57,6 @@ export default function products(state = initialState, action) {
 
       return {
         ...state,
-        isLoading: true,
         isLoaded: false,
       };
 
@@ -77,7 +75,6 @@ export default function products(state = initialState, action) {
 
       return {
         ...state,
-        isLoading: false,
         isLoaded: true,
         data: action.payload,
       };

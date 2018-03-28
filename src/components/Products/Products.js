@@ -4,8 +4,6 @@ import './Products.css';
 import { ProductForm, ProductCard } from './';
 import Modal from '../../shared/components/Modal/Modal';
 import withLoading from '../../shared/hoc/WithLoading/WithLoading';
-// import { addProduct, getProducts } from '../../_actions';
-
 
 class Products extends Component {
 
@@ -45,6 +43,7 @@ class Products extends Component {
   }
 
   showProducts() {
+
 
     const products = (this.props.data)
       ? this.props.data.slice(0, this.props.count - 1)

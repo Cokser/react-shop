@@ -20,6 +20,9 @@
     "no-underscore-dangle": [
       "off"
     ],
+    "no-multiple-empty-lines": [
+      "error"
+    ],
     "padded-blocks": [
       "error",
       "always"

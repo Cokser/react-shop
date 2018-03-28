@@ -12,11 +12,9 @@ export default class ProductCard extends Component {
     this.productKeys = Object.keys(props.product);
     this.productValues = Object.values(props.product);
 
-    this.handleClick = this.handleClick.bind(this);
-
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
 
     e.preventDefault();
     this.props.goToDetail(this.props.product.id);
@@ -26,12 +24,10 @@ export default class ProductCard extends Component {
   render() {
 
     return (
-
       <div
         role="presentation"
         className="col-xs-12 col-sm-5 col-md-3 p-0"
-        onClick={this.handleClick
-        }
+        onClick={this.handleClick}
       >
         <article className="card product-item">
           <header className="card-header">

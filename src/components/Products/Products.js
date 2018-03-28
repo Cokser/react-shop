@@ -1,32 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import './Products.css';
-import ProductForm from './ProductForm/ProductForm';
+import { ProductForm, ProductCard } from './';
 import Modal from '../../shared/components/Modal/Modal';
-import ProductCard from './ProductCard/ProductCard';
-// import withLoading from '../../shared/hoc/WithLoading/WithLoading';
+import withLoading from '../../shared/hoc/WithLoading/WithLoading';
 // import { addProduct, getProducts } from '../../_actions';
 
 
 class Products extends Component {
 
-  constructor(props) {
-
-    super(props);
-
-    this.state = {
-      count: props.count,
-      mode: props.mode,
-      showModal: false,
-    };
-
-    this.handleHide = this.handleHide.bind(this);
-    this.handleShow = this.handleShow.bind(this);
-    this.goToProductPage = this.goToProductPage.bind(this);
-    this.addProduct = this.addProduct.bind(this);
-
-  }
+  state = {
+    showModal: false,
+  };
 
   componentDidMount() {
 
@@ -35,18 +20,18 @@ class Products extends Component {
 
   }
 
-  goToProductPage(id) {
+  goToProductPage = (id) => {
 
     this.props.history.push(`/products/${id}`);
 
-  }
+  };
 
-  addProduct(newProduct) {
+  addProduct = (newProduct) => {
 
     this.props.addProduct(newProduct, '../json/Products.json');
     this.handleHide();
 
-  }
+  };
 
   setId() {
 
@@ -62,7 +47,7 @@ class Products extends Component {
   showProducts() {
 
     const products = (this.props.data)
-      ? this.props.data.slice(0, this.state.count - 1)
+      ? this.props.data.slice(0, this.props.count - 1)
       : null;
 
     if (products) {
@@ -85,19 +70,14 @@ class Products extends Component {
 
   }
 
-  handleShow() {
+  handleShow = () => this.setState({ showModal: true });
 
-    this.setState({ showModal: true });
 
-  }
-
-  handleHide() {
-
-    this.setState({ showModal: false });
-
-  }
+  handleHide = () => this.setState({ showModal: false });
 
   render() {
+
+    console.log(this.props);
 
     const modal = this.state.showModal ? (
       <Modal>
@@ -123,7 +103,7 @@ class Products extends Component {
       </Modal>
     ) : null;
 
-    const mode = this.state.mode === 'catalog' ? (
+    const mode = this.props.mode === 'catalog' ? (
       <button
         type="button"
         className="btn btn-primary mx-auto"
@@ -148,13 +128,4 @@ class Products extends Component {
 
 }
 
-Products = connect()(Products);
-
-export default Products;
-
-// export default withLoading(Products, {
-//   get: [{
-//     url: '../json/Products.json',
-//     action: getProducts,
-//   }],
-// });
+export default withLoading(Products);

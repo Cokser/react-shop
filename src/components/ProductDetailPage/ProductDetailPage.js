@@ -2,37 +2,22 @@ import React, { Component } from 'react';
 
 class ProductDetailPage extends Component {
 
-  constructor(props) {
-
-    super(props);
-
-    this.product = {};
-    // this.getProduct(props.data);
-
-  }
-
   componentDidMount() {
 
     this.props.getProduct('../json/product.json');
 
   }
-  // getProduct(productsList) {
-  //
-  //   this.product = productsList
-  //     .find(product => product.id === +this.props.match.params.id);
-  //
-  // }
 
   showProduct() {
 
-    if (this.product) {
+    if (this.props.data) {
 
-      const productKeys = this.product
-        ? Object.keys(this.product)
+      const productKeys = this.props.data
+        ? Object.keys(this.props.data)
         : null;
 
-      const productValues = this.product
-        ? Object.values(this.product)
+      const productValues = this.props.data
+        ? Object.values(this.props.data)
         : null;
 
       return (
@@ -51,8 +36,6 @@ class ProductDetailPage extends Component {
   }
 
   render() {
-
-    this.product = this.props.data;
 
     return (
       <div className="col-8 mx-auto mt-2">

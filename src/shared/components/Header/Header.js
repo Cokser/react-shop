@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
 import './Header.css';
-import ActiveRoute from '../../../components/ActiveRoute/ActiveRoute';
+import ActiveRoute from '../ActiveRoute/ActiveRoute';
 
 const menu = [
   {

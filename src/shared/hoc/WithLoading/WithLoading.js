@@ -1,100 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import './WithLoading.css';
 
 function withLoading(Component) {
 
-  class Loader extends React.Component {
+  const WithLoading = ({ isLoaded, ...props }) => {
 
-    constructor(props) {
-
-      super(props);
-      this.state = { isLoaded: false };
-
-    }
-
-    componentDidMount() {
-
-      // this.initData();
-
-    }
-    //
-    // initData() {
-    //
-    //   // getList.get.forEach((getElement) => {
-    //   //
-    //   //   this.fetchData(getElement);
-    //   //
-    //   // });
-    //
-    // }
-
-    // fetchData(getElement) {
-    //
-    //   fetch(getElement.url)
-    //     .then(res => res.json())
-    //     .then(
-    //       (result) => {
-    //
-    //         this.setState({
-    //           isLoaded: true,
-    //         });
-    //         this.props.dispatch(getElement.action(result.data));
-    //
-    //       },
-    //       (error) => {
-    //
-    //         console.log(error);
-    //
-    //       },
-    //     );
-    //
-    // }
-
-    render() {
-
-      if (this.state.isLoaded) {
-
-        return (<Component
-          data={this.props.data}
-          {...this.props}
-        />);
-
-      }
-
-      return (
-        <button className="btn btn-sm btn-warning">
-          <span className="glyphicon glyphicon-refresh glyphicon-refresh-animate" />
-          Loading...
-        </button>
-      );
-
-    }
-
-  }
-
-  Loader.displayName = `Loader(${Component.displayName || Component.name || 'Component'})`;
-
-
-  const mapStateToProps = (state) => {
-
-    console.log(state);
-    return {
-      data: state.products,
-    };
+    console.log('WithLoading.render', props, isLoaded);
+    return (
+      isLoaded ? <div><h2>Loading...</h2></div> : <Component {...props} />
+    );
 
   };
 
-  //   ({
-  //   data: state.products,
-  // });
+  WithLoading.displayName = `WithLoading(${Component.displayName || Component.name || 'Component'})`;
 
-  Loader = connect(mapStateToProps)(Loader);
-
-  return Loader;
+  return WithLoading;
 
 }
-
 
 export default withLoading;

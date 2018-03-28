@@ -1,9 +1,31 @@
 {
-  "data": [{
-    "name": "firstProd",
-    "description": "first product",
-    "count": 2,
-    "material": "plastic",
-    "id": 1
-  }]
+  "data": [
+    {
+      "name": "firstProd",
+      "description": "first product",
+      "count": 2,
+      "material": "plastic",
+      "id": 1
+    },
+    {
+      "name": "secondProd",
+      "description": "second product",
+      "count": 1,
+      "material": "plastic",
+      "id": 2
+    },
+    {
+      "name": "thirdProd",
+      "description": "third product",
+      "count": 12,
+      "material": "metal",
+      "id": 3
+    },
+    {
+      "name": "fourthProd",
+      "description": "fourth product",
+      "count": 43,
+      "material": "plastic",
+      "id": 4
+    }]
 }

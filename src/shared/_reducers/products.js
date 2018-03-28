@@ -9,9 +9,9 @@ import {
 
 const initialState = {
   isLoading: false,
-  loaded: false,
+  isLoaded: false,
   data: null,
-  error: null,
+  hasError: null,
 };
 
 
@@ -27,7 +27,7 @@ export default function products(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
-        loaded: false,
+        isLoaded: false,
       };
 
     }
@@ -46,7 +46,7 @@ export default function products(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        loaded: true,
+        isLoaded: true,
         data: action.payload,
       };
 
@@ -59,7 +59,7 @@ export default function products(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
-        loaded: false,
+        isLoaded: false,
       };
 
     }
@@ -78,7 +78,7 @@ export default function products(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        loaded: true,
+        isLoaded: true,
         data: action.payload,
       };
 
@@ -91,7 +91,7 @@ export default function products(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
-        loaded: false,
+        isLoaded: false,
       };
 
     }
@@ -110,7 +110,7 @@ export default function products(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        loaded: true,
+        isLoaded: true,
         product: action.payload,
       };
 

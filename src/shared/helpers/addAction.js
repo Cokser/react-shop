@@ -1,4 +1,4 @@
-import Request from 'superagent';
+// import Request from 'superagent';
 
 
 const addAction = ({ loadingAction, errorAction, receivedAction }) => {
@@ -12,24 +12,50 @@ const addAction = ({ loadingAction, errorAction, receivedAction }) => {
       dispatch(loadingAction(true));
       dispatch(errorAction(false));
 
-      Request.get(url)
-        .then((response) => {
+      // ------ SHOULD BE POST ------ //
+      // Request.post('/user')
+      //   .set('Content-Type', 'application/json')
+      //   .send('{"name":"tj","pet":"tobi"}')
+      //   .then((res) => {
+      //
+      //     dispatch(receivedAction(res));
+      //     dispatch(loadingAction(false));
+      //
+      //   });
 
-          const fakeDate = response.body.data.concat(data);
 
-          console.log(fakeDate);
+      // ------ FAKE POST ------ //
+      const fakeRequest = new Promise((resolve, reject) => {
 
-          dispatch(receivedAction(fakeDate));
-          dispatch(loadingAction(false));
-          // dispatch(receivedAction(response.body.data));
-          // dispatch(loadingAction(false));
+        setTimeout(() => {
 
-        });
+          console.log(resolve, 'heeeeeeeeeeelo');
+          dispatch(receivedAction(reject));
+          resolve(99);
+
+        }, 1000);
+
+      });
+
+      // Request.get(url)
+      //   .then((response) => {
+      //
+      //     const fakeDate = response.body.data.concat(data);
+      //
+      //     console.log(fakeDate);
+      //
+      //     dispatch(receivedAction(fakeDate));
+      //     dispatch(loadingAction(false));
+      //     // dispatch(receivedAction(response.body.data));
+      //     // dispatch(loadingAction(false));
+      //
+      //   });
       // .catch(() => {
       //
       //   dispatch(errorAction(true));
       //
       // });
+      return fakeRequest;
 
     };
 

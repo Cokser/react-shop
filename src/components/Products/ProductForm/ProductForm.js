@@ -19,7 +19,6 @@ export default class ProductForm extends Component {
     };
     this.state = this.initialState;
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -34,7 +33,7 @@ export default class ProductForm extends Component {
 
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
 
     const { target: { name, value } } = event;
 
@@ -47,7 +46,7 @@ export default class ProductForm extends Component {
       },
     );
 
-  }
+  };
 
   validateField(fieldName, value) {
 
@@ -109,7 +108,7 @@ export default class ProductForm extends Component {
 
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
 
     event.preventDefault();
 
@@ -156,7 +155,7 @@ export default class ProductForm extends Component {
 
     }
 
-  }
+  };
 
   render() {
 

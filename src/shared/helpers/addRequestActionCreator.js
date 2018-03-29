@@ -36,24 +36,6 @@ const addAction = ({ loadingAction, errorAction, receivedAction }) => {
 
       });
 
-      // Request.get(url)
-      //   .then((response) => {
-      //
-      //     const fakeDate = response.body.data.concat(data);
-      //
-      //     console.log(fakeDate);
-      //
-      //     dispatch(receivedAction(fakeDate));
-      //     dispatch(loadingAction(false));
-      //     // dispatch(receivedAction(response.body.data));
-      //     // dispatch(loadingAction(false));
-      //
-      //   });
-      // .catch(() => {
-      //
-      //   dispatch(errorAction(true));
-      //
-      // });
       return fakeRequest;
 
     };

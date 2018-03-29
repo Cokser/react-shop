@@ -4,7 +4,7 @@ class ProductDetailPage extends Component {
 
   componentDidMount() {
 
-    this.props.getProduct('../json/product.json');
+    this.props.getProductAction('../json/product.json');
 
   }
 

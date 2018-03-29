@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
-import { getProduct } from '../../shared/_actions';
+import { getProductAction } from '../../shared/_actions';
 import ProductDetailPage from './ProductDetailPage';
 
 const mapStateToProps = state => ({
-  data: state.products.product,
+  data: state.getProductReducer.product,
+  isLoaded: state.getProductReducer.isLoaded,
+  hasError: state.getProductReducer.hasError,
 });
 
 const mapDispatchToProps = {
-  getProduct,
+  getProductAction,
 };
 
 const ProductDetailContainer = connect(

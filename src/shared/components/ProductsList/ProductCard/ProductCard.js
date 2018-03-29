@@ -19,7 +19,7 @@ export default class ProductCard extends Component {
     e.preventDefault();
     this.props.goToDetail(this.props.product.id);
 
-  }
+  };
 
   render() {
 

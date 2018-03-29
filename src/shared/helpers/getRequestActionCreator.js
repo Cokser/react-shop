@@ -13,7 +13,7 @@ const requestActionCreator = ({ loadingAction, errorAction, receivedAction }) =>
         .then((response) => {
 
           dispatch(receivedAction(response.body.data));
-          dispatch(loadingAction(false));
+          // dispatch(loadingAction(false));
 
         })
         .catch(() => {

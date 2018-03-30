@@ -1,4 +1,4 @@
-import addAction from '../../shared/helpers/addRequestActionCreator';
+import addAction from '../../../shared/helpers/addRequestActionCreator';
 
 export const ADD_PRODUCT_STARTED = 'ADD_PRODUCT_STARTED';
 export const addIsLoading = bool => ({

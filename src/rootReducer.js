@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import getProductsReducer from '../components/ProductsList/getProductsReducer';
-import getProductReducer from '../../components/ProductDetailPage/getProductReducer';
-import addProductReducer from '../../components/ProductsPage/addProductRaducer';
+import getProductsReducer from './shared/components/ProductsList/getProductsReducer';
+import getProductReducer from './components/ProductDetailPage/getProductReducer';
+import addProductReducer from './components/ProductsPage/ProductForm/addProductRaducer';
 
 export const initialState = {
   isLoaded: false,

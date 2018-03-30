@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { getProductAction } from '../../rootActions';
 
 class ProductDetailPage extends Component {
 
@@ -9,6 +12,8 @@ class ProductDetailPage extends Component {
   }
 
   showProduct() {
+
+    console.log(this.props);
 
     if (this.props.data) {
 
@@ -58,5 +63,20 @@ class ProductDetailPage extends Component {
   }
 
 }
+
+const mapStateToProps = state => ({
+  data: state.getProductReducer.data,
+  isLoaded: state.getProductReducer.isLoaded,
+  hasError: state.getProductReducer.hasError,
+});
+
+const mapDispatchToProps = {
+  getProductAction,
+};
+
+ProductDetailPage = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProductDetailPage);
 
 export default ProductDetailPage;

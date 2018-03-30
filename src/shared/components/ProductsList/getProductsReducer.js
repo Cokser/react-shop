@@ -3,7 +3,7 @@ import {
   GET_PRODUCTS_ERROR,
   RECEIVE_PRODUCTS,
 } from './getProductsAction';
-import { initialState } from '../../_reducers/index';
+import { initialState } from '../../../rootReducer';
 
 const getProductsReducer = (state = initialState, action) => {
 

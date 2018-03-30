@@ -1,7 +1,11 @@
-import {ADD_PRODUCT_STARTED} from '../_actions';
+import {
+  ADD_PRODUCT_STARTED,
+  ADD_PRODUCT_ERROR,
+  PRODUCT_ADDED,
+} from './addProductAction';
+import { initialState } from '../../../rootReducer';
 
-const products = (state = initialState, action) => {
-
+const addProductReducer = (state = initialState, action) => {
 
   switch (action.type) {
 
@@ -27,6 +31,7 @@ const products = (state = initialState, action) => {
 
     case PRODUCT_ADDED: {
 
+      console.log('adding hello', action);
       return {
         ...state,
         isLoaded: true,
@@ -35,6 +40,14 @@ const products = (state = initialState, action) => {
 
     }
 
+    default: {
+
+      return state;
+
+    }
+
   }
 
-}
+};
+
+export default addProductReducer;

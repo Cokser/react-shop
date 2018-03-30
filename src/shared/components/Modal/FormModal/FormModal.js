@@ -1,7 +1,7 @@
 import React from 'react';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal';
 
-export default class ProductsFormModal extends React.Component {
+class FormModal extends React.Component {
 
   state = {
     showModal: this.props.showModal,
@@ -53,3 +53,5 @@ export default class ProductsFormModal extends React.Component {
   }
 
 }
+
+export default FormModal;

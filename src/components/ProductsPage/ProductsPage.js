@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import './ProductsPage.css';
-import ProductsFormModal from '../../shared/components/ProductsFormModal/ProductsFormModal';
-import ProductForm from '../ProductForm/ProductForm';
-import ProductsListContainer from '../../shared/components/ProductsList/ProductsListContainer';
-import { getProductsAction, addProductAction } from '../../shared/_actions';
+import ProductsFormModal from '../../shared/components/Modal/FormModal/FormModal';
+import ProductForm from './ProductForm/ProductForm';
+import ProductsList from '../../shared/components/ProductsList/ProductsList';
+import { getProductsAction, addProductAction } from '../../rootActions';
 
-class ProductPageComponent extends React.Component {
+class ProductsPage extends PureComponent {
 
   state = {
     showModal: false,
   };
 
-  componentDidMount() {
+  componentWillMount() {
 
     const url = '../json/Products.json';
     this.props.getProductsAction(url);
@@ -33,6 +33,8 @@ class ProductPageComponent extends React.Component {
 
   render() {
 
+    console.log('ProductPage rendered');
+
     return (
       <div className="col-10 mx-auto">
         <h1 className="text-center">Products Catalog!</h1>
@@ -47,7 +49,12 @@ class ProductPageComponent extends React.Component {
             addSubmitted={this.addProduct}
           />
         </ProductsFormModal>
-        <ProductsListContainer count="8" history={this.props.history} />
+        <ProductsList
+          data={this.props.data}
+          isLoaded={this.props.isLoaded}
+          count="8"
+          history={this.props.history}
+        />
       </div>
     );
 
@@ -66,9 +73,9 @@ const mapDispatchToProps = {
   addProductAction,
 };
 
-ProductPageComponent = connect(
+ProductsPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ProductPageComponent);
+)(ProductsPage);
 
-export default ProductPageComponent;
+export default ProductsPage;

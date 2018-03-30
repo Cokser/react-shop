@@ -3,7 +3,7 @@ import {
   GET_PRODUCT_STARTED,
   RECEIVE_PRODUCT,
 } from './getProductAction';
-import { initialState } from '../../shared/_reducers/index';
+import { initialState } from '../../rootReducer';
 
 
 const getProductReducer = (state = initialState, action) => {
@@ -31,6 +31,12 @@ const getProductReducer = (state = initialState, action) => {
     }
 
     case RECEIVE_PRODUCT: {
+
+      console.log({
+        ...state,
+        isLoaded: true,
+        data: action.payload,
+      });
 
       return {
         ...state,

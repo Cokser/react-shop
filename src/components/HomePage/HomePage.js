@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import ProductsListContainer from '../../shared/components/ProductsList/ProductsListContainer';
-import { getProductsAction } from '../../shared/_actions';
+import ProductsList from '../../shared/components/ProductsList/ProductsList';
+import { getProductsAction } from '../../rootActions';
 
-class HomePageComponent extends React.Component {
+class HomePage extends PureComponent {
 
-  componentDidMount() {
+  componentWillMount() {
 
     const url = '../json/Products.json';
     this.props.getProductsAction(url);
@@ -18,7 +18,13 @@ class HomePageComponent extends React.Component {
     return (
       <div className="col-10 mx-auto">
         <h1 className="text-center">Finally at Home!</h1>
-        <ProductsListContainer count="4" mode="list" history={this.props.history} />
+        <ProductsList
+          count="4"
+          mode="list"
+          data={this.props.data}
+          isLoaded={this.props.isLoaded}
+          history={this.props.history}
+        />
       </div>
     );
 
@@ -36,9 +42,9 @@ const mapDispatchToProps = {
   getProductsAction,
 };
 
-HomePageComponent = connect(
+HomePage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HomePageComponent);
+)(HomePage);
 
-export default HomePageComponent;
+export default HomePage;

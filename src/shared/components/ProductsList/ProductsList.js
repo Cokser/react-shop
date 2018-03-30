@@ -9,7 +9,6 @@ const ProductsList = props => (
         key={product.id}
         goToDetail={(id) => {
 
-            console.log(id, props);
             props.history.push(`/products/${id}`);
 
           }

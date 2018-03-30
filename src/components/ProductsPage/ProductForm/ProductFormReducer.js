@@ -2,7 +2,7 @@ import {
   ADD_PRODUCT_STARTED,
   ADD_PRODUCT_ERROR,
   PRODUCT_ADDED,
-} from './addProductAction';
+} from './ProductFormAction';
 import { initialState } from '../../../rootReducer';
 
 const addProductReducer = (state = initialState, action) => {

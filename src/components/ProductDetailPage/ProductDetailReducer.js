@@ -2,7 +2,7 @@ import {
   GET_PRODUCT_ERROR,
   GET_PRODUCT_STARTED,
   RECEIVE_PRODUCT,
-} from './getProductAction';
+} from './ProductDetailAction';
 import { initialState } from '../../rootReducer';
 
 

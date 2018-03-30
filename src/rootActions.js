@@ -1,3 +1,3 @@
-export * from './components/ProductDetailPage/getProductAction';
-export * from './shared/components/ProductsList/getProductsAction';
-export * from './components/ProductsPage/ProductForm/addProductAction';
+export * from './components/ProductDetailPage/ProductDetailAction';
+export * from './shared/components/ProductsList/ProductsListAction';
+export * from './components/ProductsPage/ProductForm/ProductFormAction';

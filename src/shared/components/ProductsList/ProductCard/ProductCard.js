@@ -1,9 +1,9 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import './ProductCard.css';
 
-export default class ProductCard extends Component {
+export default class ProductCard extends PureComponent {
 
   constructor(props) {
 

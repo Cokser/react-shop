@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-const ActiveRoute = props => (
-  <p className="m-0 navbar-brand">{props.location.pathname}</p>
-);
+class ActiveRoute extends PureComponent {
+
+  render() {
+
+    return (
+      <p className="m-0 navbar-brand">
+        {this.props.location.pathname}
+      </p>
+    );
+
+  }
+
+}
 
 export default ActiveRoute;

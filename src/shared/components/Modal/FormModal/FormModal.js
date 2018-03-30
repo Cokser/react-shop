@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Modal from '../Modal';
 
-class FormModal extends React.Component {
+class FormModal extends PureComponent {
 
   state = {
     showModal: this.props.showModal,

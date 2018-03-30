@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { getProductAction } from '../../rootActions';
 
-class ProductDetailPage extends Component {
+class ProductDetailPage extends PureComponent {
 
   componentDidMount() {
 

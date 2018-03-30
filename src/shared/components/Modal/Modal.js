@@ -1,10 +1,10 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import { createPortal } from 'react-dom';
 import './Modal.css';
 
 const modalRoot = document.getElementById('modal-root');
 
-export default class Modal extends React.Component {
+export default class Modal extends PureComponent {
 
   constructor(props) {
 

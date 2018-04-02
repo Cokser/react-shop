@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import './ProductsPage.css';
+import './ProductsPage.scss';
 import ProductsFormModal from '../../shared/components/Modal/FormModal/FormModal';
 import ProductForm from './ProductForm/ProductForm';
 import ProductsList from '../../shared/components/ProductsList/ProductsList';
@@ -15,7 +15,7 @@ class ProductsPage extends PureComponent {
 
   componentWillMount() {
 
-    const url = '../json/products.json';
+    const url = 'json/products.json';
     this.props.getProductsAction(url);
 
   }
@@ -32,6 +32,8 @@ class ProductsPage extends PureComponent {
   handleHide = () => this.setState({ showModal: false });
 
   render() {
+
+    console.log('ProductPage rendered');
 
     return (
       <div className="col-10 mx-auto">

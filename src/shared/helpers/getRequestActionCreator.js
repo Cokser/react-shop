@@ -12,6 +12,7 @@ const requestActionCreator = ({ loadingAction, errorAction, receivedAction }) =>
       Request.get(url)
         .then((response) => {
 
+          console.log(response);
           dispatch(receivedAction(response.body.data));
           // dispatch(loadingAction(false));
 

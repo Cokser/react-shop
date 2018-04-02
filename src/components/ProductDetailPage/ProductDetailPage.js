@@ -13,6 +13,8 @@ class ProductDetailPage extends PureComponent {
 
   showProduct() {
 
+    console.log(this.props);
+
     if (this.props.data) {
 
       const productKeys = this.props.data

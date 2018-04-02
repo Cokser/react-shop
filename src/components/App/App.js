@@ -12,14 +12,14 @@ class App extends PureComponent {
 
     return (
       <BrowserRouter>
-        <div className="container-fluid">
+        <div className='container-fluid'>
           <Header />
-          <main className="row">
+          <main className='row'>
             <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/products" component={ProductsPage} />
-              <Route path="/products/:id" component={ProductDetailPage} />
-              <Redirect to="/" />
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/products' component={ProductsPage} />
+              <Route path='/products/:id' component={ProductDetailPage} />
+              <Redirect to='/' />
             </Switch>
           </main>
         </div>

@@ -16,11 +16,11 @@ class HomePage extends PureComponent {
   render() {
 
     return (
-      <div className="col-10 mx-auto">
-        <h1 className="text-center">Finally at Home!</h1>
+      <div className='col-10 mx-auto'>
+        <h1 className='text-center'>Finally at Home!</h1>
         <ProductsList
-          count="4"
-          mode="list"
+          count='4'
+          mode='list'
           data={this.props.data}
           isLoaded={this.props.isLoaded}
           history={this.props.history}

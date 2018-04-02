@@ -1,12 +1,10 @@
 {
-  "parser": "babel-eslint",
   "extends": [
     "airbnb"
   ],
   "plugins": [
-    "babel",
-    "react",
-    "promise"
+    "react"
+//    "promise"
   ],
   "env": {
     "browser": true,
@@ -20,11 +18,24 @@
   },
   "rules": {
 
-    "key-spacing"          : "off",
-    "jsx-quotes"           : [2, "prefer-single"],
-    "max-len"              : [2, 120, 2],
-    "object-curly-spacing" : [2, "always"],
-    "comma-dangle"         : "off",
+    "key-spacing":
+    "off",
+    "jsx-quotes": [
+      2,
+      "prefer-single"
+    ],
+    "max-len": [
+      2,
+      120,
+      2
+    ],
+    "object-curly-spacing": [
+      2,
+      "always"
+    ],
+    "comma-dangle": [
+      "off"
+    ],
     "jsx-a11y/label-has-for": [
       "off"
     ],

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import './ProductsPage.scss';
-import ProductsFormModal from '../../shared/components/Modal/FormModal/FormModal';
+import FormModal from '../../shared/components/Modal/FormModal/FormModal';
 import ProductForm from './ProductForm/ProductForm';
 import ProductsList from '../../shared/components/ProductsList/ProductsList';
 import { getProductsAction, addProductAction } from '../../rootActions';
@@ -22,7 +22,7 @@ class ProductsPage extends PureComponent {
 
   addProduct = (newProduct) => {
 
-    this.props.addProductAction(newProduct, '../json/Products.json');
+    this.props.addProductAction(newProduct, '../json/products.json');
     this.handleHide();
 
   };
@@ -33,7 +33,7 @@ class ProductsPage extends PureComponent {
 
   render() {
 
-    console.log('ProductPage rendered');
+    console.log('ProductPage rendered', this.state);
 
     return (
       <div className="col-10 mx-auto">
@@ -44,11 +44,11 @@ class ProductsPage extends PureComponent {
           onClick={this.handleShow}
         >Add Product
         </button>
-        <ProductsFormModal showModal={this.state.showModal}>
+        <FormModal showModal={this.state.showModal}>
           <ProductForm
             addSubmitted={this.addProduct}
           />
-        </ProductsFormModal>
+        </FormModal>
         <ProductsList
           data={this.props.data}
           isLoaded={this.props.isLoaded}

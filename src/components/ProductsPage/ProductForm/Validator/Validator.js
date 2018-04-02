@@ -42,7 +42,7 @@ export default class Validator extends React.Component {
   render() {
 
     return (
-      <div className="formErrors">
+      <div className='formErrors'>
         {Object.keys(this.state.validators)
           .map((fieldName, i) => {
 
@@ -117,7 +117,7 @@ export default class Validator extends React.Component {
             if (this.errorsList.length > 0) {
 
               return (
-                <p className="alert alert-danger" key={i} >
+                <p className='alert alert-danger' key={i} >
                   {fieldName} error
                 </p>
               );

@@ -15,7 +15,11 @@ class FormModal extends PureComponent {
 
   }
 
-  handleHide = () => this.setState({ showModal: false });
+  handleHide = () => {
+
+    console.log(this.props);
+    this.setState({ showModal: false });
+  };
 
   showModal() {
 

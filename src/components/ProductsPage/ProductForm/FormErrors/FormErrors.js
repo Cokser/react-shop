@@ -2,7 +2,7 @@ import React from 'react';
 
 const FormErrors = ({ formErrors }) =>
   (
-    <div className="formErrors">
+    <div className='formErrors'>
       {
         Object.keys(formErrors)
           .map((fieldName) => {
@@ -11,7 +11,7 @@ const FormErrors = ({ formErrors }) =>
 
                 return (
                   <p
-                    className="alert alert-danger"
+                    className='alert alert-danger'
                     key={fieldName}
                   >
                     {fieldName} {formErrors[fieldName]}

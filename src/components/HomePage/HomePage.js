@@ -8,7 +8,7 @@ class HomePage extends PureComponent {
 
   componentWillMount() {
 
-    const url = '../json/Products.json';
+    const url = '../json/products.json';
     this.props.getProductsAction(url);
 
   }

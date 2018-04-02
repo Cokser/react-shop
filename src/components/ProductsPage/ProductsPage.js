@@ -15,7 +15,7 @@ class ProductsPage extends PureComponent {
 
   componentWillMount() {
 
-    const url = '../json/Products.json';
+    const url = '../json/products.json';
     this.props.getProductsAction(url);
 
   }
@@ -32,8 +32,6 @@ class ProductsPage extends PureComponent {
   handleHide = () => this.setState({ showModal: false });
 
   render() {
-
-    console.log('ProductPage rendered');
 
     return (
       <div className="col-10 mx-auto">

@@ -1,7 +1,0 @@
-#root {
-    overflow: hidden;
-}
-#modal-root {
-    position: relative;
-    z-index: 999;
-}

@@ -1,7 +1,7 @@
 import React, { Fragment, PureComponent } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
-import './Header.css';
+import './Header.scss';
 import ActiveRoute from '../ActiveRoute/ActiveRoute';
 
 const menu = [

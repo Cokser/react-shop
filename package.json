@@ -1,5 +1,5 @@
 {
-  "name": "Shop Application",
+  "name": "react-shop",
   "version": "1.0.0",
   "description": "Webpack 3 React, Redux and Sass",
   "private": false,
@@ -9,7 +9,7 @@
     "clean": "rimraf build",
     "lint": "eslint src || true",
     "test": "clear && jest ./tests --setupTestFrameworkScriptFile=raf/polyfill",
-    "dev": "webpack-dashboard -t 'Webpack Dashboard' -- webpack-dev-server",
+    "run-dev": "webpack-dashboard -t 'Webpack Dashboard' -- webpack-dev-server",
     "build": "npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
     "deploy": "npm run build && cp now.json ./build && now ./build --public",
     "alias": "cp now.json ./build && cd ./build && now alias",
@@ -23,7 +23,6 @@
   "keywords": [
     "react",
     "webpack3",
-    "boilerplate",
     "redux",
     "sass"
   ],

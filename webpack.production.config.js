@@ -17,7 +17,7 @@ module.exports = {
 
   entry: [
     './',
-    './scss/app'
+    // './app'
   ],
 
   output: {
@@ -29,19 +29,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|json)$/,
         loaders: ['babel-loader'],
         exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             'css-loader?modules&importLoaders=1&localIdentName=[hash:base64:5]',
             'postcss-loader',
-            { loader: 'sass-loader', query: { sourceMap: false } }
+            { loader: 'sass-loader',
+              query: { sourceMap: false } }
           ],
         }),
       },

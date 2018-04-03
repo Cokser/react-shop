@@ -1,13 +1,24 @@
+import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
 
 import App from './components/App/App';
-import store from './store';
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <AppContainer>
+      <App />
+  </AppContainer>,
   document.getElementById('root'),
 );
+
+if (module && module.hot) {
+  module.hot.accept('./components/App/App', () => {
+    const NewApp = require('./components/App/App').default;
+    render(
+      <AppContainer>
+        <NewApp />
+      </AppContainer>,
+      document.getElementById('root')
+    );
+  });
+}

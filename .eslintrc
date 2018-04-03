@@ -1,103 +1,23 @@
 {
-  "extends": [
-    "airbnb"
-  ],
-  "plugins": [
-    "react"
-//    "promise"
-  ],
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true
   },
-  "globals": {
-    "__DEV__"      : false,
-    "__TEST__"     : false,
-    "__PROD__"     : false,
-    "__COVERAGE__" : false
+  "ecmaFeatures": {
+    "jsx": true,
+    "es6": true,
+    "classes": true
   },
+  "extends": "airbnb",
   "rules": {
-
-    "key-spacing":
-    "off",
-    "jsx-quotes": [
-      2,
-      "prefer-single"
-    ],
-    "max-len": [
-      2,
-      120,
-      2
-    ],
-    "object-curly-spacing": [
-      2,
-      "always"
-    ],
-    "comma-dangle": [
-      "off"
-    ],
-    "jsx-a11y/label-has-for": [
-      "off"
-    ],
-    "linebreak-style": [
-      "off"
-    ],
-    "no-class-assign": [
-      "warn"
-    ],
-    "no-underscore-dangle": [
-      "off"
-    ],
-    "no-multiple-empty-lines": [
-      "error"
-    ],
-    "padded-blocks": [
-      "error",
-      "always"
-    ],
-    "react/prefer-stateless-function": [
-      "off"
-    ],
-    "react/jsx-filename-extension": [
-      "off"
-    ],
-    "react/prop-types": [
-      "warn"
-    ],
-    "react/sort-comp": [
-      "error",
-      {
-        "order": [
-          "static-methods",
-          "lifecycle",
-          "everything-else",
-          "render"
-        ],
-        "groups": {
-          "lifecycle": [
-            "displayName",
-            "propTypes",
-            "contextTypes",
-            "childContextTypes",
-            "mixins",
-            "statics",
-            "defaultProps",
-            "constructor",
-            "getDefaultProps",
-            "getInitialState",
-            "state",
-            "getChildContext",
-            "componentWillMount",
-            "componentDidMount",
-            "componentWillReceiveProps",
-            "shouldComponentUpdate",
-            "componentWillUpdate",
-            "componentDidUpdate",
-            "componentWillUnmount",
-            "componentDidCatch"
-          ]
-        }
-      }
-    ]
+    "space-before-function-paren": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "linebreak-style": 0,
+    "global-require": 0,
+    "eol-last": 0,
+    "comma-dangle": 0,
+    "spaced-comment": 0
   }
 }

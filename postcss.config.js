@@ -9,6 +9,6 @@ module.exports = {
       'iOS >= 7',
       'Opera >= 12',
       'Safari >= 7.1',
-    ] })
-  ]
+    ] }),
+  ],
 }

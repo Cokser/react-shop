@@ -10,27 +10,27 @@ const routes = [
       {
         path: '/',
         exact: true,
-        component: HomePage
+        component: HomePage,
       },
       {
         path: '/home',
         exact: true,
-        component: HomePage
+        component: HomePage,
       },
       {
         path: '/products',
         exact: true,
-        component: ProductsPage
+        component: ProductsPage,
       },
       {
         path: '/products/:id',
-        component: ProductDetailPage
+        component: ProductDetailPage,
       },
       {
-        component: HomePage
+        component: HomePage,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 export default routes;

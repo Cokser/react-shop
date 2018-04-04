@@ -19,6 +19,7 @@ class FormModal extends PureComponent {
 
     console.log(this.props);
     this.setState({ showModal: false });
+
   };
 
   showModal() {

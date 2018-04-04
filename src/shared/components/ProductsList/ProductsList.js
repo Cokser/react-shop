@@ -7,7 +7,7 @@ class ProductsList extends PureComponent {
   render() {
 
     return (
-      <div className='row products-container'>
+      <div className="row products-container">
         {this.props.data ? this.props.data.map(product => (
           <ProductCard
             key={product.id}

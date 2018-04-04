@@ -28,7 +28,6 @@ const addAction = ({ loadingAction, errorAction, receivedAction }) => {
 
         setTimeout(() => {
 
-          console.log(resolve, 'heeeeeeeeeeelo');
           dispatch(receivedAction(reject));
           resolve(99);
 

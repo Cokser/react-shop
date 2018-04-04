@@ -27,7 +27,7 @@ class ProductDetailPage extends PureComponent {
       return (
         productKeys.map((productProp, index) => (
           <tr key={productProp}>
-            <th scope='row'>{productProp}</th>
+            <th scope="row">{productProp}</th>
             <td>{productValues[index]}</td>
           </tr>
         ))
@@ -42,13 +42,13 @@ class ProductDetailPage extends PureComponent {
   render() {
 
     return (
-      <div className='col-8 mx-auto mt-2'>
+      <div className="col-8 mx-auto mt-2">
         {renderRoutes(this.props.route.routes)}
-        <table className='table'>
-          <thead className='thead-dark'>
+        <table className="table">
+          <thead className="thead-dark">
             <tr>
-              <th scope='col'>Key</th>
-              <th scope='col'>Value</th>
+              <th scope="col">Key</th>
+              <th scope="col">Value</th>
             </tr>
           </thead>
           <tbody>

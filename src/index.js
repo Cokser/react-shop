@@ -6,19 +6,23 @@ import App from './components/App/App';
 
 render(
   <AppContainer>
-      <App />
+    <App />
   </AppContainer>,
   document.getElementById('root'),
 );
 
 if (module && module.hot) {
+
   module.hot.accept('./components/App/App', () => {
+
     const NewApp = require('./components/App/App').default;
     render(
       <AppContainer>
         <NewApp />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
+
   });
+
 }

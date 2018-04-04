@@ -2,26 +2,26 @@ import React from 'react';
 
 const FormErrors = ({ formErrors }) =>
   (
-    <div className='formErrors'>
+    <div className="formErrors">
       {
         Object.keys(formErrors)
           .map((fieldName) => {
 
-              if (formErrors[fieldName].length > 0) {
+            if (formErrors[fieldName].length > 0) {
 
-                return (
-                  <p
-                    className='alert alert-danger'
-                    key={fieldName}
-                  >
-                    {fieldName} {formErrors[fieldName]}
-                  </p>
-                );
+              return (
+                <p
+                  className="alert alert-danger"
+                  key={fieldName}
+                >
+                  {fieldName} {formErrors[fieldName]}
+                </p>
+              );
 
-              }
-              return '';
+            }
+            return '';
 
-            })
+          })
       }
     </div>
   );

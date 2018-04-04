@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
-
 import { Provider } from 'react-redux';
 
 import Header from '../../shared/components/Header/Header';
@@ -17,9 +16,9 @@ class App extends PureComponent {
 
       <Provider store={store}>
         <BrowserRouter>
-          <div className='container-fluid'>
+          <div className="container-fluid">
             <Header />
-            <main className='row'>
+            <main className="row">
               <Switch>
                 {renderRoutes(routes)}
               </Switch>

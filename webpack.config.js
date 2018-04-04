@@ -27,7 +27,7 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://${NODE_HOST}:${NODE_PORT}`,
-    './'
+    './',
   ],
 
   output: {
@@ -41,45 +41,49 @@ module.exports = {
       {
         test: /\.(js|jsx|json)$/,
         loaders: ['babel-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader",
-          options: {
-            sourceMap: true
-          }
-        }, {
-          loader: "sass-loader",
-          options: {
-            sourceMap: true
-          }
-        }]
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: 'url-loader?limit=15000&name=[name]-[hash].[ext]'
+        use: 'url-loader?limit=15000&name=[name]-[hash].[ext]',
       },
-      // {
-      //   test: /\.eot(\?v=\d+.\d+.\d+)?$/,
-      //   use: 'file-loader'
-      // },
-      // {
-      //   test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      //   use: 'url-loader?limit=10000&mimetype=application/font-woff'
-      // },
-      // {
-      //   test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
-      //   use: 'url-loader?limit=10000&mimetype=application/octet-stream'
-      // },
-      // {
-      //   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-      //   use: 'url-loader?limit=10000&mimetype=image/svg+xml'
-      // }
-    ]
+      {
+        test: /\.eot(\?v=\d+.\d+.\d+)?$/,
+        use: 'file-loader',
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: 'url-loader?limit=10000&mimetype=application/font-woff',
+      },
+      {
+        test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
+        use: 'url-loader?limit=10000&mimetype=application/octet-stream',
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: 'url-loader?limit=10000&mimetype=image/svg+xml',
+      },
+    ],
   },
 
   resolve: {
@@ -87,8 +91,8 @@ module.exports = {
     alias: {
       variables: resolve(__dirname, 'src/scss/utils/variables'),
       mixins: resolve(__dirname, 'src/scss/utils/mixins'),
-      respond: resolve(__dirname, 'src/scss/utils/respond')
-    }
+      respond: resolve(__dirname, 'src/scss/utils/respond'),
+    },
   },
 
   devServer: {
@@ -109,14 +113,14 @@ module.exports = {
       timings: true,
       version: false,
       warnings: true,
-      colors: true
-    }
+      colors: true,
+    },
   },
 
   plugins: [
     new Dotenv({
       path: './.env',
-      safe: true
+      safe: true,
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
@@ -126,8 +130,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new DashboardPlugin()
-  ]
+    new DashboardPlugin(),
+  ],
 
 };
-

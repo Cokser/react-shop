@@ -1,10 +1,5 @@
 import React, { PureComponent } from 'react';
 
-
-// class WithLoading extends PureComponent {
-//
-// }
-
 function withLoading(Component) {
 
   class WithLoading extends PureComponent {

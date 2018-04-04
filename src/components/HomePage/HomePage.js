@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
 
 import ProductsList from '../../shared/components/ProductsList/ProductsList';
 import { getProductsAction } from '../../rootActions';
@@ -17,6 +18,7 @@ class HomePage extends PureComponent {
 
     return (
       <div className='col-10 mx-auto'>
+        {renderRoutes(this.props.route.routes)}
         <h1 className='text-center'>Finally at Home!</h1>
         <ProductsList
           count='4'

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
 
 import './ProductsPage.scss';
 import FormModal from '../../shared/components/Modal/FormModal/FormModal';
@@ -37,6 +38,7 @@ class ProductsPage extends PureComponent {
 
     return (
       <div className="col-10 mx-auto">
+        {renderRoutes(this.props.route.routes)}
         <h1 className="text-center">Products Catalog!</h1>
         <button
           type="button"

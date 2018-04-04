@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
-import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+
 import { Provider } from 'react-redux';
 
 import Header from '../../shared/components/Header/Header';
-import HomePage from '../HomePage/HomePage';
-import ProductsPage from '../ProductsPage/ProductsPage';
-import ProductDetailPage from '../ProductDetailPage/ProductDetailPage';
 import store from '../../store';
+import routes from '../../routes';
+
 
 class App extends PureComponent {
 
@@ -20,10 +21,7 @@ class App extends PureComponent {
             <Header />
             <main className='row'>
               <Switch>
-                <Route exact path='/' component={HomePage} />
-                <Route exact path='/products' component={ProductsPage} />
-                <Route path='/products/:id' component={ProductDetailPage} />
-                <Redirect to='/' />
+                {renderRoutes(routes)}
               </Switch>
             </main>
           </div>

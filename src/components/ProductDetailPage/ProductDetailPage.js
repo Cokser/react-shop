@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
 
 import { getProductAction } from '../../rootActions';
 
@@ -12,8 +13,6 @@ class ProductDetailPage extends PureComponent {
   }
 
   showProduct() {
-
-    console.log(this.props);
 
     if (this.props.data) {
 
@@ -44,6 +43,7 @@ class ProductDetailPage extends PureComponent {
 
     return (
       <div className='col-8 mx-auto mt-2'>
+        {renderRoutes(this.props.route.routes)}
         <table className='table'>
           <thead className='thead-dark'>
             <tr>

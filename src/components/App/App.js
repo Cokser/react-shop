@@ -3,9 +3,9 @@ import { Switch, BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 
-import Header from '../../shared/components/Header/Header';
-import store from '../../store';
-import routes from '../../routes';
+import Header from 'shared/components/Header/Header';
+import store from 'src/store';
+import routes from 'src/routes';
 
 
 class App extends PureComponent {

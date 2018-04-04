@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 
 import './ProductsPage.scss';
-import FormModal from '../../shared/components/Modal/FormModal/FormModal';
+import FormModal from 'shared/components/Modal/FormModal/FormModal';
 import ProductForm from './ProductForm/ProductForm';
-import ProductsList from '../../shared/components/ProductsList/ProductsList';
-import { getProductsAction, addProductAction } from '../../rootActions';
+import ProductsList from 'shared/components/ProductsList/ProductsList';
+import { getProductsAction, addProductAction } from 'src/rootActions';
 
 class ProductsPage extends PureComponent {
 

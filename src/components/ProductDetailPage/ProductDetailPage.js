@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 
-import { getProductAction } from '../../rootActions';
+import { getProductAction } from 'src/rootActions';
 
 class ProductDetailPage extends PureComponent {
 

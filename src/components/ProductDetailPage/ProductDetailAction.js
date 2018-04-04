@@ -1,4 +1,4 @@
-import requestActionCreator from '../../shared/helpers/getRequestActionCreator';
+import requestActionCreator from 'shared/helpers/getRequestActionCreator';
 
 // --------------- GET PRODUCT ACTION --------------- //
 

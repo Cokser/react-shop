@@ -3,7 +3,7 @@ import {
   GET_PRODUCT_STARTED,
   RECEIVE_PRODUCT,
 } from './ProductDetailAction';
-import { initialState } from '../../rootReducer';
+import { initialState } from 'src/rootReducer';
 
 
 const getProductReducer = (state = initialState, action) => {

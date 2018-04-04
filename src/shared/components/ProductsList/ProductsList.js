@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import ProductCard from './ProductCard/ProductCard';
-import withLoading from '../../hoc/WithLoading/WithLoading';
+import withLoading from 'shared/hoc/WithLoading/WithLoading';
 
 class ProductsList extends PureComponent {
 

@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 
-import ProductsList from '../../shared/components/ProductsList/ProductsList';
-import { getProductsAction } from '../../rootActions';
+import ProductsList from 'shared/components/ProductsList/ProductsList';
+import { getProductsAction } from 'src/rootActions';
 
 class HomePage extends PureComponent {
 

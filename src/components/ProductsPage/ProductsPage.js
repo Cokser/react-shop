@@ -46,7 +46,7 @@ class ProductsPage extends PureComponent {
           onClick={this.handleShow}
         >Add Product
         </button>
-        <FormModal showModal={this.state.showModal}>
+        <FormModal handleModal={this.handleHide} showModal={this.state.showModal}>
           <ProductForm
             addSubmitted={this.addProduct}
           />

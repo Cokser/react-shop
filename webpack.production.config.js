@@ -41,8 +41,12 @@ module.exports = {
           use: [
             'css-loader?modules&importLoaders=1&localIdentName=[hash:base64:5]',
             'postcss-loader',
-            { loader: 'sass-loader',
-              query: { sourceMap: false } }
+            {
+              loader: 'sass-loader',
+              query: {
+                sourceMap: false
+              }
+            }
           ],
         }),
       },

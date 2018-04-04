@@ -2,5 +2,13 @@
 .product-item {
   margin: 5px;
   cursor: pointer;
-  background-image: url("../../../../../public/logo.jpg") !important;
+  background-image: url("../../../../../public/logo.jpg");
+  background-position-y: -10px;
+}
+
+.card-text {
+  //text-shadow: #fff 1px 1px 0, #fff -1px -1px 0,
+  //#fff -1px 1px 0, #fff 1px -1px 0;
+  //letter-spacing: 4px;
+  //font-size: 19px;
 }

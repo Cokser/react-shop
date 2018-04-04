@@ -7,7 +7,7 @@
   "scripts": {
     "start": "clear && webpack-dev-server",
     "clean": "rimraf build",
-    "lint": "eslint src || true",
+    "lint": "eslint src || true --quiet",
     "test": "clear && jest ./tests --setupTestFrameworkScriptFile=raf/polyfill",
     "run-dev": "webpack-dashboard -t 'Webpack Dashboard' -- webpack-dev-server",
     "build": "npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",

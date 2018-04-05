@@ -52,8 +52,7 @@ class ProductsPage extends PureComponent {
           />
         </FormModal>
         <ProductsList
-          data={this.props.data}
-          isLoaded={this.props.isLoaded}
+          products={this.props.products}
           count="8"
           history={this.props.history}
         />
@@ -65,9 +64,7 @@ class ProductsPage extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  data: state.getProductsReducer.data,
-  isLoaded: state.getProductsReducer.isLoaded,
-  hasError: state.getProductsReducer.hasError,
+  products: state.getProductsReducer.products,
 });
 
 const mapDispatchToProps = {

@@ -4,9 +4,11 @@ import getProductReducer from './components/ProductDetailPage/ProductDetailReduc
 import addProductReducer from './components/ProductsPage/ProductForm/ProductFormReducer';
 
 export const initialState = {
-  isLoaded: false,
-  data: null,
-  hasError: null,
+  products: {
+    isLoaded: false,
+    data: null,
+    hasError: null,
+  },
 };
 
 const rootReducer = combineReducers({

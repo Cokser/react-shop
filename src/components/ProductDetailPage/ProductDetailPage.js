@@ -14,14 +14,16 @@ class ProductDetailPage extends PureComponent {
 
   showProduct() {
 
-    if (this.props.data) {
+    if (this.props.product.data) {
 
-      const productKeys = this.props.data
-        ? Object.keys(this.props.data)
+      const product = this.props.product.data;
+
+      const productKeys = product
+        ? Object.keys(product)
         : null;
 
-      const productValues = this.props.data
-        ? Object.values(this.props.data)
+      const productValues = product
+        ? Object.values(product)
         : null;
 
       return (
@@ -65,9 +67,7 @@ class ProductDetailPage extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  data: state.getProductReducer.data,
-  isLoaded: state.getProductReducer.isLoaded,
-  hasError: state.getProductReducer.hasError,
+  product: state.getProductReducer.product,
 });
 
 const mapDispatchToProps = {

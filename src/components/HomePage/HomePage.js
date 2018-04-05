@@ -23,8 +23,7 @@ class HomePage extends PureComponent {
         <ProductsList
           count="4"
           mode="list"
-          data={this.props.data}
-          isLoaded={this.props.isLoaded}
+          products={this.props.products}
           history={this.props.history}
         />
       </div>
@@ -35,9 +34,7 @@ class HomePage extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  data: state.getProductsReducer.data,
-  isLoaded: state.getProductsReducer.isLoaded,
-  hasError: state.getProductsReducer.hasError,
+  products: state.getProductsReducer.products,
 });
 
 const mapDispatchToProps = {

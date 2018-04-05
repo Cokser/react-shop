@@ -89,6 +89,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss'],
     alias: {
+      public: resolve(__dirname, 'public'),
       shared: resolve(__dirname, 'src/shared'),
       src: resolve(__dirname, 'src'),
       variables: resolve(__dirname, 'src/scss/utils/variables'),

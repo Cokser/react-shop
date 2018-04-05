@@ -31,7 +31,6 @@ const addProductReducer = (state = initialState, action) => {
 
     case PRODUCT_ADDED: {
 
-      console.log('adding hello', action);
       return {
         ...state,
         isLoaded: true,

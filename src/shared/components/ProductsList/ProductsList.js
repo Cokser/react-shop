@@ -8,7 +8,7 @@ class ProductsList extends PureComponent {
 
     return (
       <div className="row products-container">
-        {this.props.data ? this.props.data.map(product => (
+        {this.props.products.data ? this.props.products.data.map(product => (
           <ProductCard
             key={product.id}
             goToDetail={(id) => {
@@ -25,22 +25,5 @@ class ProductsList extends PureComponent {
   }
 
 }
-
-// const ProductsList = props => (
-//   <div className="row products-container">
-//     {props.data ? props.data.map(product => (
-//       <ProductCard
-//         key={product.id}
-//         goToDetail={(id) => {
-//
-//             props.history.push(`/products/${id}`);
-//
-//           }
-//         }
-//         product={product}
-//       />)) : null
-//     }
-//   </div>
-// );
 
 export default withLoading(ProductsList);

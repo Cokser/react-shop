@@ -14,27 +14,35 @@ const getProductsReducer = (state = initialState, action) => {
     case GET_PRODUCTS_STARTED: {
 
       return {
-        ...state,
-        isLoaded: false,
+        ...state.products,
+        products: {
+          isLoaded: false,
+        },
+
       };
 
     }
 
     case GET_PRODUCTS_ERROR: {
 
-      return [
-        ...state,
-        action.data,
-      ];
+      return {
+        ...state.products,
+        products: {
+          hasError: action.payload,
+        },
+
+      };
 
     }
 
     case RECEIVE_PRODUCTS: {
 
       return {
-        ...state,
-        isLoaded: true,
-        data: action.payload,
+        ...state.products,
+        products: {
+          isLoaded: true,
+          data: action.payload,
+        },
       };
 
     }

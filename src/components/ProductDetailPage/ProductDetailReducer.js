@@ -3,8 +3,14 @@ import {
   GET_PRODUCT_STARTED,
   RECEIVE_PRODUCT,
 } from './ProductDetailAction';
-import { initialState } from 'src/rootReducer';
-
+// import { initialState } from 'src/rootReducer';
+const initialState = {
+  product: {
+    isLoaded: false,
+    data: null,
+    hasError: null,
+  },
+};
 
 const getProductReducer = (state = initialState, action) => {
 
@@ -15,33 +21,35 @@ const getProductReducer = (state = initialState, action) => {
     case GET_PRODUCT_STARTED: {
 
       return {
-        ...state,
-        isLoaded: false,
+        ...state.product,
+        product: {
+          isLoaded: false,
+        },
+
       };
 
     }
 
     case GET_PRODUCT_ERROR: {
 
-      return [
-        ...state,
-        action.payload,
-      ];
+      return {
+        ...state.product,
+        product: {
+          hasError: action.payload,
+        },
+
+      };
 
     }
 
     case RECEIVE_PRODUCT: {
 
-      console.log({
-        ...state,
-        isLoaded: true,
-        data: action.payload,
-      });
-
       return {
-        ...state,
-        isLoaded: true,
-        data: action.payload,
+        ...state.product,
+        product: {
+          isLoaded: true,
+          data: action.payload,
+        },
       };
 
     }
